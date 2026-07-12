@@ -862,7 +862,7 @@ function About() {
               <InfoRow icon={School} label="Trường" value="Đại học Kinh tế - ĐHQGHN" />
               <InfoRow icon={GraduationCap} label="Khoa" value="Khoa Kinh tế Phát triển" />
               <InfoRow icon={Users} label="Lớp" value="QH-2025-E KTPT7" />
-              <InfoRow icon={IdCard} label="Mã sinh viên (MSV)" value="25050668" />
+              <InfoRow icon={IdCard} label="Mã sinh viên&nbsp;" value="25050668" />
               <InfoRow icon={Mail} label="Email" value="25050668@vnu.edu.vn" />
             </ul>
           </div>
