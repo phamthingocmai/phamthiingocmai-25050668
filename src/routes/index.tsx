@@ -804,7 +804,7 @@ function About() {
           {/* Avatar card */}
           <div className="reveal rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
             <div className="mx-auto h-40 w-40 overflow-hidden rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 ring-4 ring-primary/20">
-              <img src={studentPhoto.url} alt="Ảnh sinh viên Phạm Thị Ngọc Mai" className="h-full w-full object-cover" />
+              <img src={studentPhoto.url} alt="Ảnh sinh viên Phạm Thị Ngọc Mai" className="h-full w-full object-cover object-top" style={{ objectPosition: "center 15%" }} />
             </div>
             <div className="mt-6 text-center">
               <h3 className="text-2xl font-bold">Phạm Thị Ngọc Mai</h3>
