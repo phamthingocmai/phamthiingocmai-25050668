@@ -146,8 +146,37 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    background-color: var(--color-background);
+    background: var(--gradient-soft);
+    background-attachment: fixed;
     color: var(--color-foreground);
+    font-family: 'Be Vietnam Pro', 'Inter', system-ui, sans-serif;
   }
 }
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+@keyframes blob {
+  0%, 100% { border-radius: 42% 58% 63% 37% / 42% 42% 58% 58%; }
+  50% { border-radius: 58% 42% 37% 63% / 58% 58% 42% 42%; }
+}
+.animate-blob { animation: blob 12s ease-in-out infinite; }
