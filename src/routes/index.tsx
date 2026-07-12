@@ -4,6 +4,7 @@ import {
   FolderTree, Search, MessageSquareCode, Users, Sparkles, ShieldCheck,
   ArrowUp, ArrowRight, Mail, GraduationCap, Heart, Target, CheckCircle2,
   Image as ImageIcon, PlayCircle, Rocket, BookOpen, Brain, Compass,
+  IdCard, School, Phone, Calendar,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -528,9 +529,13 @@ function About() {
               </p>
             </div>
             <ul className="mt-6 space-y-3 text-sm">
+              <InfoRow icon={IdCard} label="Mã sinh viên (MSV)" value="[Điền MSV]" />
+              <InfoRow icon={Users} label="Lớp" value="[Điền lớp]" />
+              <InfoRow icon={School} label="Trường" value="[Điền trường]" />
               <InfoRow icon={GraduationCap} label="Ngành học" value="[Điền ngành học]" />
-              <InfoRow icon={BookOpen} label="Trường / Lớp" value="[Điền trường / lớp]" />
-              <InfoRow icon={Mail} label="Liên hệ" value="[email@example.com]" />
+              <InfoRow icon={Calendar} label="Khóa / Năm học" value="[Điền khóa]" />
+              <InfoRow icon={Mail} label="Email" value="[email@example.com]" />
+              <InfoRow icon={Phone} label="Số điện thoại" value="[Điền SĐT]" />
             </ul>
           </div>
 
