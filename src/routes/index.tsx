@@ -305,10 +305,17 @@ const PROJECTS = [
     },
     evidenceImages: BAI2_IMAGES,
     attachment: {
-      url: bai2Report.url,
-      name: "Bài 2 – Ảnh chụp 12 nguồn tham khảo (.zip)",
-      size: "12 ảnh minh chứng",
+      url: bai2Docx.url,
+      name: "Bài 2 – Báo cáo (.docx)",
+      size: "Bản báo cáo đầy đủ",
     },
+    extraAttachments: [
+      {
+        url: bai2Report.url,
+        name: "Bài 2 – Ảnh chụp 12 nguồn tham khảo (.zip)",
+        size: "12 ảnh minh chứng",
+      },
+    ],
   },
   {
     id: 3,
