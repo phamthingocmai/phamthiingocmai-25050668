@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import studentPhoto from "@/assets/student-photo.jpg.asset.json";
 import bai1Report from "@/assets/bai1/report.docx.asset.json";
+import bai3Report from "@/assets/bai3/report.docx.asset.json";
 
 // Load all Bài 1 evidence images (28 ảnh) — sorted by filename
 const bai1ImageModules = import.meta.glob<{ default: { url: string } }>(
