@@ -1248,6 +1248,17 @@ function Evidence() {
 }
 
 // ============ SKILLS ============
+const SKILL_STYLES = [
+  { color: "#3b82f6", light: "#93c5fd", dark: "#1d4ed8", Icon: FolderTree },
+  { color: "#8b5cf6", light: "#c4b5fd", dark: "#6d28d9", Icon: Search },
+  { color: "#ec4899", light: "#f9a8d4", dark: "#be185d", Icon: CheckCircle2 },
+  { color: "#f59e0b", light: "#fcd34d", dark: "#b45309", Icon: MessageSquareCode },
+  { color: "#84cc16", light: "#bef264", dark: "#4d7c0f", Icon: Users },
+  { color: "#14b8a6", light: "#5eead4", dark: "#0f766e", Icon: Sparkles },
+  { color: "#0ea5e9", light: "#7dd3fc", dark: "#0369a1", Icon: ShieldCheck },
+  { color: "#6366f1", light: "#a5b4fc", dark: "#4338ca", Icon: Target },
+];
+
 function SkillsSection() {
   return (
     <section id="skills" className="relative py-20 sm:py-24">
@@ -1257,35 +1268,128 @@ function SkillsSection() {
           title="Bảng tổng hợp kỹ năng đạt được"
           subtitle="Kỹ năng số cốt lõi được rèn luyện qua 6 bài tập."
         />
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
-          {SKILLS.map((s) => (
-            <div
-              key={s.name}
-              className="reveal rounded-3xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
-            >
-              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
-                <h4 className="min-w-0 truncate font-bold">{s.name}</h4>
-                <span className="shrink-0 rounded-full bg-primary/15 px-2.5 py-0.5 text-xs font-bold text-primary">
-                  {s.level}%
-                </span>
-              </div>
-              <div className="mt-3 h-2 overflow-hidden rounded-full bg-muted">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-primary to-secondary"
-                  style={{ width: `${s.level}%` }}
-                />
-              </div>
-              <p className="mt-3 text-sm text-muted-foreground">
-                <Compass className="mr-1 inline h-3.5 w-3.5 text-secondary" />
-                {s.use}
-              </p>
+
+        <div className="reveal mt-12 rounded-3xl border border-border bg-card p-6 sm:p-10 shadow-[var(--shadow-soft)]">
+          {/* Chart area */}
+          <div className="relative">
+            {/* Y-axis label */}
+            <div className="mb-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-xs">
+              Mức độ đạt được (%)
             </div>
-          ))}
+
+            <div className="flex gap-2 sm:gap-3">
+              {/* Y axis */}
+              <div className="relative flex w-8 shrink-0 flex-col justify-between pb-2 pt-4 text-[10px] font-semibold text-muted-foreground sm:text-xs" style={{ height: 420 }}>
+                {[100, 80, 60, 40, 20, 0].map((v) => (
+                  <div key={v} className="flex items-center gap-1">
+                    <span>{v}</span>
+                    <span className="h-px w-1.5 bg-border" />
+                  </div>
+                ))}
+              </div>
+
+              {/* Bars */}
+              <div className="relative flex-1">
+                {/* gridlines */}
+                <div className="pointer-events-none absolute inset-0 pt-4 pb-2">
+                  {[0, 1, 2, 3, 4, 5].map((i) => (
+                    <div
+                      key={i}
+                      className="absolute left-0 right-0 border-t border-dashed border-border/60"
+                      style={{ top: `${(i / 5) * 100}%` }}
+                    />
+                  ))}
+                </div>
+
+                <div className="relative grid grid-cols-4 gap-2 pt-4 sm:grid-cols-8 sm:gap-3" style={{ height: 420 }}>
+                  {SKILLS.map((s, i) => {
+                    const style = SKILL_STYLES[i];
+                    return (
+                      <div key={s.name} className="relative flex flex-col items-center justify-end">
+                        {/* percentage bubble */}
+                        <div
+                          className="absolute z-10 rounded-lg bg-card px-2 py-0.5 text-xs font-black shadow-[var(--shadow-soft)] sm:text-sm"
+                          style={{
+                            color: style.dark,
+                            bottom: `calc(${s.level}% + 8px)`,
+                          }}
+                        >
+                          {s.level}%
+                        </div>
+
+                        {/* 3D bar */}
+                        <div
+                          className="relative w-full overflow-hidden rounded-t-md transition-transform duration-500 hover:-translate-y-1"
+                          style={{
+                            height: `${s.level}%`,
+                            background: `linear-gradient(180deg, ${style.light} 0%, ${style.color} 40%, ${style.dark} 100%)`,
+                            boxShadow: `inset -6px 0 0 0 ${style.dark}55, inset 6px 0 0 0 ${style.light}66, 0 8px 20px -6px ${style.color}80`,
+                          }}
+                        >
+                          {/* top face highlight */}
+                          <div
+                            className="absolute left-0 right-0 top-0 h-2"
+                            style={{
+                              background: `linear-gradient(90deg, ${style.light}, ${style.color})`,
+                              boxShadow: `inset 0 1px 0 rgba(255,255,255,0.5)`,
+                            }}
+                          />
+                          {/* number */}
+                          <div className="absolute inset-x-0 bottom-2 text-center text-lg font-black text-white/90 sm:text-2xl">
+                            {String(i + 1).padStart(2, "0")}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                {/* base line */}
+                <div className="h-1.5 rounded-full bg-gradient-to-r from-border via-muted-foreground/30 to-border" />
+              </div>
+            </div>
+
+            {/* Labels row */}
+            <div className="mt-5 grid grid-cols-4 gap-2 pl-10 sm:grid-cols-8 sm:gap-3">
+              {SKILLS.map((s, i) => {
+                const style = SKILL_STYLES[i];
+                const Icon = style.Icon;
+                return (
+                  <div key={s.name} className="flex flex-col items-center text-center">
+                    <div
+                      className="grid h-11 w-11 place-items-center rounded-full border-2 bg-card shadow-sm"
+                      style={{ borderColor: style.color, color: style.color }}
+                    >
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div
+                      className="mt-2 text-[11px] font-bold leading-tight sm:text-xs"
+                      style={{ color: style.dark }}
+                    >
+                      {s.name}
+                    </div>
+                    <div className="mx-auto mt-1 h-0.5 w-6 rounded-full" style={{ background: style.color }} />
+                    <p className="mt-2 text-[10px] leading-snug text-muted-foreground sm:text-xs">
+                      {s.use}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Footer badge */}
+          <div className="mt-8 flex justify-center">
+            <div className="flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary">
+              <Sparkles className="h-4 w-4" />
+              Tiếp tục phát huy — Nâng cao kỹ năng — Làm chủ tương lai số!
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 // ============ CONCLUSION ============
 function Conclusion() {
