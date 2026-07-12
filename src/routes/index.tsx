@@ -4,6 +4,7 @@ import {
   FolderTree, Search, MessageSquareCode, Users, Sparkles, ShieldCheck,
   ArrowUp, ArrowRight, Mail, GraduationCap, Heart, Target, CheckCircle2,
   Image as ImageIcon, PlayCircle, Rocket, BookOpen, Brain, Compass,
+  IdCard, School, Phone, Calendar,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
