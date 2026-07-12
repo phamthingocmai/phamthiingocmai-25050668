@@ -760,10 +760,10 @@ function Hero() {
             className="mt-6 text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-foreground"
             style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}
           >
-            Tri thức số,
+            Portfolio
             <br />
             <span className="italic bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              tư duy logic.
+              Kỹ thuật số cá nhân.
             </span>
           </h1>
 
