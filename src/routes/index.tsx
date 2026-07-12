@@ -6,6 +6,7 @@ import {
   Image as ImageIcon, PlayCircle, Rocket, BookOpen, Brain, Compass,
   IdCard, School, Phone, Calendar,
 } from "lucide-react";
+import studentPhoto from "@/assets/student-photo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
