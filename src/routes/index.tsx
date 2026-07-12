@@ -60,6 +60,32 @@ const PROJECTS = [
       "Quản lý dữ liệu khoa học là kỹ năng nền tảng của công dân số.",
       "Một cấu trúc thư mục tốt tiết kiệm thời gian, tăng hiệu quả học tập và làm việc.",
     ],
+    evaluation: {
+      strengths: [
+        "Cấu trúc thư mục 4 cấp rõ ràng, dễ tìm kiếm và mở rộng.",
+        "Đặt tên tệp thống nhất theo quy tắc mã môn – bài – phiên bản.",
+        "Sao lưu song song cả trên Google Drive và máy cá nhân.",
+      ],
+      improvements: [
+        "Cần bổ sung README mô tả nội dung cho từng thư mục con.",
+        "Chưa tận dụng hết các shortcut nâng cao trong File Explorer.",
+      ],
+      takeaways: [
+        "Recycle Bin giúp khôi phục tệp đã xoá nhầm nhanh chóng.",
+        "Shortcut phím tắt tiết kiệm đáng kể thời gian thao tác lặp lại.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "Không sử dụng AI trong bài tập này.",
+        "Toàn bộ thao tác được thực hiện trực tiếp trên máy tính cá nhân theo hướng dẫn của giảng viên.",
+      ],
+      commitments: [
+        "Tôi tự tay tạo, đổi tên và sắp xếp mọi tệp/thư mục.",
+        "Ảnh chụp màn hình là minh chứng thật từ máy của tôi.",
+        "Cấu trúc trình bày phản ánh đúng thư mục đang sử dụng.",
+      ],
+    },
     tags: ["Data Management", "Digital Hygiene", "Cloud"],
     progress: 100,
   },
