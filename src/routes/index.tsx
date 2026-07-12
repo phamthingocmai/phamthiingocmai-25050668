@@ -4,9 +4,49 @@ import {
   FolderTree, Search, MessageSquareCode, Users, Sparkles, ShieldCheck,
   ArrowUp, ArrowRight, Mail, GraduationCap, Heart, Target, CheckCircle2,
   Image as ImageIcon, PlayCircle, Rocket, BookOpen, Brain, Compass,
-  IdCard, School, Phone, Calendar,
+  IdCard, School, Phone, Calendar, FileText, Download,
 } from "lucide-react";
 import studentPhoto from "@/assets/student-photo.jpg.asset.json";
+import bai1Report from "@/assets/bai1/report.docx.asset.json";
+
+// Load all Bài 1 evidence images (28 ảnh) — sorted by filename
+const bai1ImageModules = import.meta.glob<{ default: { url: string } }>(
+  "@/assets/bai1/step-*.jpg.asset.json",
+  { eager: true }
+);
+const BAI1_CAPTIONS = [
+  "Mở File Explorer (Windows + E)",
+  "Truy cập This PC",
+  "Mở ổ đĩa / thư mục Documents",
+  "Tạo thư mục mới",
+  "Đặt tên ThucHanh_PhamThiNgocMai",
+  "Vào thư mục vừa tạo",
+  "Tạo tệp GhiChu.txt",
+  "Xác nhận tệp GhiChu.txt",
+  "Đổi tên thành GhiChuQuanTrong.txt",
+  "Tạo thư mục con TaiLieu",
+  "Xác nhận thư mục TaiLieu",
+  "Copy tệp GhiChuQuanTrong.txt (Ctrl+C)",
+  "Paste bản sao vào TaiLieu (Ctrl+V)",
+  "Tạo tệp DiChuyen.txt",
+  "Xác nhận DiChuyen.txt",
+  "Cut tệp DiChuyen.txt (Ctrl+X)",
+  "Trạng thái tệp sau khi Cut",
+  "Paste DiChuyen.txt trong TaiLieu",
+  "Kết quả di chuyển tệp",
+  "Chuẩn bị xóa GhiChuQuanTrong.txt",
+  "Chọn Delete từ menu chuột phải",
+  "Tệp được chuyển vào Recycle Bin",
+  "Kiểm tra tệp trong Recycle Bin",
+  "Xóa vĩnh viễn (Shift + Delete)",
+  "Thư mục trống sau khi xóa vĩnh viễn",
+  "Mở Recycle Bin từ Desktop",
+  "Khôi phục tệp bằng lệnh Restore",
+  "Kết quả sau khi khôi phục tệp",
+];
+const BAI1_IMAGES = Object.entries(bai1ImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], i) => ({ url: mod.default.url, caption: BAI1_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
 
 export const Route = createFileRoute("/")({
   head: () => ({
