@@ -173,6 +173,32 @@ const PROJECTS = [
       "Muốn AI trả lời tốt, phải đặt câu hỏi tốt.",
       "Prompt hiệu quả cần: vai trò, bối cảnh, nhiệm vụ, định dạng, tiêu chí đánh giá.",
     ],
+    evaluation: {
+      strengths: [
+        "Prompt cải tiến đầy đủ Vai trò – Bối cảnh – Nhiệm vụ – Định dạng – Tiêu chí.",
+        "So sánh khách quan theo 6 tiêu chí cụ thể, có nhận xét từng dòng.",
+        "Lưu lại cả prompt và đầu ra AI làm minh chứng đối chiếu.",
+      ],
+      improvements: [
+        "Nên thử thêm một prompt trung gian giữa hai phiên bản để thấy rõ tiến hoá.",
+        "Cần kiểm chứng nội dung AI trả về bằng nguồn học thuật ngoài.",
+      ],
+      takeaways: [
+        "Cùng chủ đề, prompt khác nhau cho ra kết quả rất khác về chất lượng.",
+        "Một prompt tốt giống như một bản mô tả yêu cầu công việc rõ ràng.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "AI đóng đúng vai trò công cụ: nhận prompt, trả kết quả.",
+        "Tôi là người đặt câu hỏi, thiết kế tiêu chí, đánh giá và biên tập đầu ra.",
+      ],
+      commitments: [
+        "Cả prompt ban đầu và prompt cải tiến đều do tôi tự viết.",
+        "Bảng so sánh và nhận xét là quan sát trực tiếp của tôi.",
+        "Không sao chép nguyên văn đầu ra AI vào báo cáo khi chưa biên tập.",
+      ],
+    },
     tags: ["Prompt Engineering", "Comparative Analysis", "AI Literacy"],
     progress: 100,
     prompts: {
