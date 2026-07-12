@@ -1554,7 +1554,7 @@ function TableBlock({ data, noWrap }: { data: any; noWrap?: boolean }) {
 // ============ EVIDENCE GALLERY ============
 const EVIDENCE_GROUPS: { bai: number; label: string; images: { url: string; caption: string }[] }[] = [
   { bai: 1, label: "Quản lý tệp & thư mục", images: BAI1_IMAGES },
-  { bai: 2, label: "Hệ điều hành & phần mềm", images: [] },
+  { bai: 2, label: "Tìm kiếm & đánh giá thông tin học thuật", images: BAI2_IMAGES },
   { bai: 3, label: "Prompt Engineering", images: BAI3_IMAGES },
   { bai: 4, label: "Làm việc nhóm trực tuyến", images: BAI4_IMAGES },
   { bai: 5, label: "Sáng tạo nội dung số với AI", images: BAI5_IMAGES },
