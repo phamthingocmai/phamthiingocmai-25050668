@@ -529,13 +529,11 @@ function About() {
               </p>
             </div>
             <ul className="mt-6 space-y-3 text-sm">
-              <InfoRow icon={IdCard} label="Mã sinh viên (MSV)" value="25050668" />
-              <InfoRow icon={Users} label="Lớp" value="QH-2025-E KTPT7" />
               <InfoRow icon={School} label="Trường" value="Đại học Kinh tế - ĐHQGHN" />
-              <InfoRow icon={GraduationCap} label="Khoa / Ngành" value="Khoa Kinh tế Phát triển" />
-              <InfoRow icon={Calendar} label="Khóa" value="QH-2025-E" />
+              <InfoRow icon={GraduationCap} label="Khoa" value="Khoa Kinh tế Phát triển" />
+              <InfoRow icon={Users} label="Lớp" value="QH-2025-E KTPT7" />
+              <InfoRow icon={IdCard} label="Mã sinh viên (MSV)" value="25050668" />
               <InfoRow icon={Mail} label="Email" value="25050668@vnu.edu.vn" />
-              <InfoRow icon={Phone} label="Số điện thoại" value="[Điền SĐT]" />
             </ul>
           </div>
 
