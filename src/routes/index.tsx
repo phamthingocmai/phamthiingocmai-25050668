@@ -899,10 +899,10 @@ function About() {
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
                   <Sparkles className="h-4 w-4" /> Câu nói tâm đắc về AI
                 </div>
-                <blockquote className="mt-3 font-[family-name:var(--font-display)] text-xl leading-snug text-foreground sm:text-2xl">
-                  <span className="text-3xl leading-none text-primary">“</span>
+                <blockquote className="mt-3 text-sm leading-relaxed text-foreground">
+                  <span className="text-base leading-none text-primary">“</span>
                   AI không thay thế con người, nhưng những người biết dùng AI sẽ thay thế những người không biết dùng nó. Với tôi, học AI là học cách tư duy nhanh hơn, sâu hơn và nhân văn hơn.
-                  <span className="text-3xl leading-none text-primary">”</span>
+                  <span className="text-base leading-none text-primary">”</span>
                 </blockquote>
                 <div className="mt-3 text-sm text-muted-foreground">— Suy ngẫm cá nhân trong hành trình học môn Nhập môn Công nghệ số & AI</div>
               </div>
