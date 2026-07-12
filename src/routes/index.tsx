@@ -1523,22 +1523,20 @@ function TableBlock({ data, noWrap }: { data: any; noWrap?: boolean }) {
 
 // ============ EVIDENCE GALLERY ============
 const EVIDENCE_GROUPS: { bai: number; label: string; images: { url: string; caption: string }[] }[] = [
-  { bai: 1, label: "Bài 1 – Quản lý tệp & thư mục", images: BAI1_IMAGES },
-  { bai: 3, label: "Bài 3 – Prompt Engineering", images: BAI3_IMAGES },
-  { bai: 4, label: "Bài 4 – Làm việc nhóm trực tuyến", images: BAI4_IMAGES },
-  { bai: 5, label: "Bài 5 – Sáng tạo nội dung số với AI", images: BAI5_IMAGES },
-  { bai: 6, label: "Bài 6 – AI có trách nhiệm", images: BAI6_IMAGES },
+  { bai: 1, label: "Quản lý tệp & thư mục", images: BAI1_IMAGES },
+  { bai: 2, label: "Hệ điều hành & phần mềm", images: [] },
+  { bai: 3, label: "Prompt Engineering", images: BAI3_IMAGES },
+  { bai: 4, label: "Làm việc nhóm trực tuyến", images: BAI4_IMAGES },
+  { bai: 5, label: "Sáng tạo nội dung số với AI", images: BAI5_IMAGES },
+  { bai: 6, label: "AI có trách nhiệm", images: BAI6_IMAGES },
 ];
 
 function Evidence() {
-  const [filter, setFilter] = useState<number | "all">("all");
-  const [lightbox, setLightbox] = useState<{ url: string; caption: string; bai: number } | null>(null);
+  const [openBai, setOpenBai] = useState<number | null>(null);
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
-  const allItems = EVIDENCE_GROUPS.flatMap((g) =>
-    g.images.map((img) => ({ ...img, bai: g.bai, label: g.label }))
-  );
-  const filtered = filter === "all" ? allItems : allItems.filter((it) => it.bai === filter);
-  const total = allItems.length;
+  const activeGroup = openBai != null ? EVIDENCE_GROUPS.find((g) => g.bai === openBai) : null;
+  const total = EVIDENCE_GROUPS.reduce((s, g) => s + g.images.length, 0);
 
   return (
     <section id="evidence" className="relative py-20 sm:py-24">
@@ -1546,82 +1544,163 @@ function Evidence() {
         <SectionTitle
           kicker="Minh chứng"
           title="Evidence Gallery"
-          subtitle={`Thư viện minh chứng trực quan — ${total} ảnh từ 5 bài thực hành`}
+          subtitle={`Thư viện minh chứng trực quan — ${total} ảnh từ 6 bài thực hành`}
         />
 
-        {/* Filter tabs */}
-        <div className="reveal mt-8 flex flex-wrap justify-center gap-2">
-          <button
-            onClick={() => setFilter("all")}
-            className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
-              filter === "all"
-                ? "border-primary bg-primary text-primary-foreground shadow"
-                : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-primary"
-            }`}
-          >
-            Tất cả ({total})
-          </button>
-          {EVIDENCE_GROUPS.map((g) => (
-            <button
-              key={g.bai}
-              onClick={() => setFilter(g.bai)}
-              className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
-                filter === g.bai
-                  ? "border-primary bg-primary text-primary-foreground shadow"
-                  : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-primary"
-              }`}
-            >
-              Bài {g.bai} ({g.images.length})
-            </button>
-          ))}
+        {/* 6 cards - 1 per bài */}
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {EVIDENCE_GROUPS.map((g) => {
+            const preview = g.images.slice(0, 4);
+            const hasImages = g.images.length > 0;
+            return (
+              <button
+                key={g.bai}
+                onClick={() => hasImages && setOpenBai(g.bai)}
+                disabled={!hasImages}
+                className={`reveal group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card text-left shadow-sm transition ${
+                  hasImages
+                    ? "hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-soft)]"
+                    : "opacity-60"
+                }`}
+              >
+                <div className="relative grid aspect-video grid-cols-2 grid-rows-2 gap-0.5 bg-muted">
+                  {hasImages ? (
+                    preview.map((img, i) => (
+                      <div key={i} className="relative overflow-hidden bg-black/5">
+                        <img
+                          src={img.url}
+                          alt={img.caption}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    ))
+                  ) : (
+                    <div className="col-span-2 row-span-2 flex items-center justify-center text-sm text-muted-foreground">
+                      Chưa có ảnh minh chứng
+                    </div>
+                  )}
+                  <span className="absolute left-3 top-3 rounded-full bg-primary/90 px-2.5 py-0.5 text-[11px] font-bold text-primary-foreground backdrop-blur">
+                    Bài {g.bai}
+                  </span>
+                  {hasImages && (
+                    <span className="absolute right-3 top-3 rounded-full bg-black/60 px-2.5 py-0.5 text-[11px] font-bold text-white backdrop-blur">
+                      {g.images.length} ảnh
+                    </span>
+                  )}
+                </div>
+                <div className="flex flex-1 items-center justify-between gap-3 p-4">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-primary">Bài {g.bai}</p>
+                    <p className="mt-0.5 text-sm font-semibold text-foreground">{g.label}</p>
+                  </div>
+                  {hasImages && (
+                    <span className="shrink-0 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary">
+                      Xem →
+                    </span>
+                  )}
+                </div>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Grid */}
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {filtered.map((img, i) => (
-            <button
-              key={`${img.bai}-${i}-${img.url}`}
-              onClick={() => setLightbox(img)}
-              className="reveal group relative overflow-hidden rounded-2xl border border-border bg-card text-left shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
-            >
-              <div className="relative aspect-video overflow-hidden bg-muted">
-                <img
-                  src={img.url}
-                  alt={img.caption}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                />
-                <span className="absolute left-2 top-2 rounded-full bg-primary/90 px-2 py-0.5 text-[10px] font-bold text-primary-foreground backdrop-blur">
-                  Bài {img.bai}
-                </span>
-              </div>
-              <div className="p-3">
-                <p className="line-clamp-2 text-xs font-medium text-foreground/90">{img.caption}</p>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Lightbox */}
-        {lightbox && (
+        {/* Group modal - all images of the selected bài */}
+        {activeGroup && (
           <div
-            onClick={() => setLightbox(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+            onClick={() => {
+              setOpenBai(null);
+              setLightboxIdx(null);
+            }}
+            className="fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-sm"
           >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="my-8 w-full max-w-6xl overflow-hidden rounded-2xl bg-card shadow-2xl"
+            >
+              <div className="flex items-center justify-between gap-4 border-b border-border p-5">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-primary">Bài {activeGroup.bai}</p>
+                  <h3 className="mt-0.5 text-lg font-bold">{activeGroup.label}</h3>
+                  <p className="text-xs text-muted-foreground">{activeGroup.images.length} ảnh minh chứng</p>
+                </div>
+                <button
+                  onClick={() => setOpenBai(null)}
+                  className="shrink-0 rounded-full border border-border px-3 py-1 text-sm font-semibold hover:bg-muted"
+                >
+                  Đóng
+                </button>
+              </div>
+              <div className="grid grid-cols-2 gap-3 p-5 sm:grid-cols-3 lg:grid-cols-4">
+                {activeGroup.images.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setLightboxIdx(i)}
+                    className="group overflow-hidden rounded-xl border border-border bg-background text-left transition hover:-translate-y-0.5 hover:shadow-md"
+                  >
+                    <div className="relative aspect-video overflow-hidden bg-muted">
+                      <img
+                        src={img.url}
+                        alt={img.caption}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <span className="absolute left-2 top-2 rounded-md bg-black/60 px-1.5 py-0.5 text-[10px] font-bold text-white">
+                        #{i + 1}
+                      </span>
+                    </div>
+                    <div className="p-2.5">
+                      <p className="line-clamp-2 text-xs font-medium text-foreground/90">{img.caption}</p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Fullscreen lightbox */}
+        {activeGroup && lightboxIdx != null && activeGroup.images[lightboxIdx] && (
+          <div
+            onClick={() => setLightboxIdx(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+          >
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIdx((idx) => (idx! - 1 + activeGroup.images.length) % activeGroup.images.length);
+              }}
+              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 px-4 py-2 text-xl font-bold text-white backdrop-blur hover:bg-white/20"
+            >
+              ‹
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIdx((idx) => (idx! + 1) % activeGroup.images.length);
+              }}
+              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 px-4 py-2 text-xl font-bold text-white backdrop-blur hover:bg-white/20"
+            >
+              ›
+            </button>
             <div
               onClick={(e) => e.stopPropagation()}
               className="relative max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-2xl bg-card shadow-2xl"
             >
-              <img src={lightbox.url} alt={lightbox.caption} className="max-h-[75vh] w-full object-contain bg-black" />
+              <img
+                src={activeGroup.images[lightboxIdx].url}
+                alt={activeGroup.images[lightboxIdx].caption}
+                className="max-h-[75vh] w-full object-contain bg-black"
+              />
               <div className="flex items-start justify-between gap-4 p-4">
                 <div>
                   <span className="inline-block rounded-full bg-primary/10 px-2 py-0.5 text-xs font-bold text-primary">
-                    Bài {lightbox.bai}
+                    Bài {activeGroup.bai} · {lightboxIdx + 1}/{activeGroup.images.length}
                   </span>
-                  <p className="mt-2 text-sm font-medium">{lightbox.caption}</p>
+                  <p className="mt-2 text-sm font-medium">{activeGroup.images[lightboxIdx].caption}</p>
                 </div>
                 <button
-                  onClick={() => setLightbox(null)}
+                  onClick={() => setLightboxIdx(null)}
                   className="shrink-0 rounded-full border border-border px-3 py-1 text-sm font-semibold hover:bg-muted"
                 >
                   Đóng
