@@ -508,7 +508,7 @@ function Navbar({ active }: { active: string }) {
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary to-secondary text-primary-foreground">
             <Sparkles className="h-4 w-4" />
           </span>
-          <span className="truncate text-sm sm:text-base">Portfolio KTS</span>
+          <span className="truncate text-sm sm:text-base">Portfolio</span>
         </button>
         <ul className="hidden lg:flex items-center gap-1">
           {NAV.map((n) => (
