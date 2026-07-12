@@ -12,6 +12,7 @@ import bai3Report from "@/assets/bai3/report.docx.asset.json";
 import bai4Report from "@/assets/bai4/report.docx.asset.json";
 import bai5Report from "@/assets/bai5/report.docx.asset.json";
 import bai6Report from "@/assets/bai6/report.docx.asset.json";
+import bai2Report from "@/assets/bai2/report.zip.asset.json";
 
 // Load all Bài 1 evidence images (28 ảnh) — sorted by filename
 const bai1ImageModules = import.meta.glob<{ default: { url: string } }>(
@@ -107,6 +108,29 @@ const BAI5_CAPTIONS = [
 const BAI5_IMAGES = Object.entries(bai5ImageModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, mod], i) => ({ url: mod.default.url, caption: BAI5_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
+
+// Bài 2 – 12 ảnh minh chứng (tìm kiếm & đánh giá nguồn thông tin học thuật)
+const bai2ImageModules = import.meta.glob<{ default: { url: string } }>(
+  "@/assets/bai2/step-*.{jpg,png}.asset.json",
+  { eager: true }
+);
+const BAI2_CAPTIONS = [
+  "Nguồn 1 – Kotler & Keller (2016): lý thuyết hành vi người tiêu dùng",
+  "Nguồn 2 – Ajzen (1991): Theory of Planned Behavior (TPB)",
+  "Nguồn 3 – Davis (1989): Technology Acceptance Model (TAM)",
+  "Nguồn 4 – Turban et al. (2018): TMĐT & khách hàng online",
+  "Nguồn 5 – Laudon & Traver (2021): hành vi người tiêu dùng trong TMĐT",
+  "Nguồn 6 – Gefen et al. (2003): Trust & TAM trong mua hàng online",
+  "Nguồn 7 – Chen & Dubinsky (2003): giá trị cảm nhận trong TMĐT",
+  "Nguồn 8 – Kim et al. (2010): Trust & Satisfaction trong TMĐT",
+  "Nguồn 9 – OECD (2022): Digital Economy Outlook",
+  "Nguồn 10 – Statista (2023): thống kê mua sắm trực tuyến toàn cầu",
+  "Nguồn 11 – Nielsen (2022): Global Consumer Behavior Report",
+  "Nguồn 12 – Think with Google (2023): xu hướng mua hàng online",
+];
+const BAI2_IMAGES = Object.entries(bai2ImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], i) => ({ url: mod.default.url, caption: BAI2_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
 
 // Bài 6 – 3 ảnh minh chứng
 const bai6ImageModules = import.meta.glob<{ default: { url: string } }>(
@@ -277,6 +301,12 @@ const PROJECTS = [
         ["11", "Nielsen", "2022", "Nielsen Report", "Báo cáo", "Global Consumer Behavior Report", "Cao"],
         ["12", "Google", "2023", "Think with Google", "Dữ liệu", "Xu hướng mua hàng online (Consumer Insights)", "Khá cao"],
       ],
+    },
+    evidenceImages: BAI2_IMAGES,
+    attachment: {
+      url: bai2Report.url,
+      name: "Bài 2 – Ảnh chụp 12 nguồn tham khảo (.zip)",
+      size: "12 ảnh minh chứng",
     },
   },
   {
@@ -1524,7 +1554,7 @@ function TableBlock({ data, noWrap }: { data: any; noWrap?: boolean }) {
 // ============ EVIDENCE GALLERY ============
 const EVIDENCE_GROUPS: { bai: number; label: string; images: { url: string; caption: string }[] }[] = [
   { bai: 1, label: "Quản lý tệp & thư mục", images: BAI1_IMAGES },
-  { bai: 2, label: "Hệ điều hành & phần mềm", images: [] },
+  { bai: 2, label: "Tìm kiếm & đánh giá thông tin học thuật", images: BAI2_IMAGES },
   { bai: 3, label: "Prompt Engineering", images: BAI3_IMAGES },
   { bai: 4, label: "Làm việc nhóm trực tuyến", images: BAI4_IMAGES },
   { bai: 5, label: "Sáng tạo nội dung số với AI", images: BAI5_IMAGES },
