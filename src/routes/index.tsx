@@ -240,6 +240,32 @@ const PROJECTS = [
       "Làm việc nhóm hiệu quả cần kế hoạch rõ ràng và công cụ phù hợp.",
       "Công cụ số nâng cao tính trách nhiệm và khả năng phối hợp.",
     ],
+    evaluation: {
+      strengths: [
+        "Bảng Trello 4 cột phản ánh đúng luồng công việc của nhóm.",
+        "Mỗi nhiệm vụ đều có người phụ trách, hạn chót và mức ưu tiên rõ ràng.",
+        "Duy trì họp định kỳ 2 lần/tuần và ghi biên bản trên card.",
+      ],
+      improvements: [
+        "Cần thêm cột 'Review' trước cột 'Hoàn thành' để tăng chất lượng.",
+        "Một số card còn thiếu mô tả và tiêu chí nghiệm thu (Definition of Done).",
+      ],
+      takeaways: [
+        "Minh bạch tiến độ giúp giảm xung đột và hiểu lầm trong nhóm.",
+        "Vai trò 'điều phối' rất cần thiết để chốt hạn và đẩy tiến độ.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "Không dùng AI để phân công công việc thay cho nhóm.",
+        "AI chỉ hỗ trợ gợi ý mẫu template Trello và cách đặt tên card.",
+      ],
+      commitments: [
+        "Việc phân công là quyết định thống nhất của cả nhóm.",
+        "Ảnh chụp bảng Trello là dữ liệu thật của dự án đang thực hiện.",
+        "Trạng thái công việc được cập nhật đúng với thực tế triển khai.",
+      ],
+    },
     tags: ["Collaboration", "Project Management", "Agile"],
     progress: 100,
     team: {
