@@ -1560,7 +1560,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground">
-          © 2026 · Portfolio Kỹ thuật số cá nhân — Made with 💗 & 💙
+          © 2026 · Portfolio Kỹ thuật số cá nhân
         </div>
       </div>
     </footer>
