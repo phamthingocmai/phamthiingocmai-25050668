@@ -1443,6 +1443,20 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                   <Download className="h-3.5 w-3.5 transition group-hover:translate-y-0.5" />
                 </a>
               )}
+              {project.extraAttachments?.map((att: { url: string; name: string }, i: number) => (
+                <a
+                  key={i}
+                  href={att.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  className="group inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary/20"
+                >
+                  <FileText className="h-3.5 w-3.5" />
+                  {att.name}
+                  <Download className="h-3.5 w-3.5 transition group-hover:translate-y-0.5" />
+                </a>
+              ))}
               {!project.attachment && (
                 <span className="text-xs text-muted-foreground">Bấm vào ảnh để phóng to nét</span>
               )}
