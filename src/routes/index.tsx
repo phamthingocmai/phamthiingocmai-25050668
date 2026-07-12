@@ -60,6 +60,32 @@ const PROJECTS = [
       "Quản lý dữ liệu khoa học là kỹ năng nền tảng của công dân số.",
       "Một cấu trúc thư mục tốt tiết kiệm thời gian, tăng hiệu quả học tập và làm việc.",
     ],
+    evaluation: {
+      strengths: [
+        "Cấu trúc thư mục 4 cấp rõ ràng, dễ tìm kiếm và mở rộng.",
+        "Đặt tên tệp thống nhất theo quy tắc mã môn – bài – phiên bản.",
+        "Sao lưu song song cả trên Google Drive và máy cá nhân.",
+      ],
+      improvements: [
+        "Cần bổ sung README mô tả nội dung cho từng thư mục con.",
+        "Chưa tận dụng hết các shortcut nâng cao trong File Explorer.",
+      ],
+      takeaways: [
+        "Recycle Bin giúp khôi phục tệp đã xoá nhầm nhanh chóng.",
+        "Shortcut phím tắt tiết kiệm đáng kể thời gian thao tác lặp lại.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "Không sử dụng AI trong bài tập này.",
+        "Toàn bộ thao tác được thực hiện trực tiếp trên máy tính cá nhân theo hướng dẫn của giảng viên.",
+      ],
+      commitments: [
+        "Tôi tự tay tạo, đổi tên và sắp xếp mọi tệp/thư mục.",
+        "Ảnh chụp màn hình là minh chứng thật từ máy của tôi.",
+        "Cấu trúc trình bày phản ánh đúng thư mục đang sử dụng.",
+      ],
+    },
     tags: ["Data Management", "Digital Hygiene", "Cloud"],
     progress: 100,
   },
@@ -85,6 +111,32 @@ const PROJECTS = [
       "Cần kiểm chứng thông tin trước khi sử dụng trong bài viết học thuật.",
       "Không nên phụ thuộc vào một nguồn duy nhất — luôn có phương án đối chiếu.",
     ],
+    evaluation: {
+      strengths: [
+        "Kết hợp linh hoạt 6 toán tử nâng cao trong cùng một truy vấn.",
+        "Ưu tiên nguồn .edu, tổ chức quốc tế và bài báo có peer-review.",
+        "Đối chiếu tối thiểu 3 nguồn trước khi đưa vào trích dẫn.",
+      ],
+      improvements: [
+        "Cần đọc kỹ Abstract và phương pháp nghiên cứu trước khi lưu nguồn.",
+        "Chưa khai thác Google Scholar Alerts để theo dõi nghiên cứu mới.",
+      ],
+      takeaways: [
+        "Toán tử site: kết hợp filetype: lọc nhiễu hiệu quả nhất.",
+        "Blog cá nhân chỉ dùng để gợi ý ý tưởng, không đưa vào trích dẫn.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "AI chỉ được dùng để gợi ý từ khoá đồng nghĩa và dịch thuật ngữ chuyên ngành.",
+        "Việc chọn nguồn và đánh giá độ tin cậy do tôi trực tiếp thực hiện.",
+      ],
+      commitments: [
+        "Tôi tự đọc và phân tích cả 5 nguồn trong bảng đánh giá.",
+        "Bảng so sánh nguồn do tôi viết, không sao chép nguyên văn từ AI.",
+        "Ghi rõ vai trò hỗ trợ của AI ở phần công cụ nếu có sử dụng.",
+      ],
+    },
     tags: ["Search Operators", "Source Evaluation", "Critical Thinking"],
     progress: 100,
     table: {
@@ -121,6 +173,32 @@ const PROJECTS = [
       "Muốn AI trả lời tốt, phải đặt câu hỏi tốt.",
       "Prompt hiệu quả cần: vai trò, bối cảnh, nhiệm vụ, định dạng, tiêu chí đánh giá.",
     ],
+    evaluation: {
+      strengths: [
+        "Prompt cải tiến đầy đủ Vai trò – Bối cảnh – Nhiệm vụ – Định dạng – Tiêu chí.",
+        "So sánh khách quan theo 6 tiêu chí cụ thể, có nhận xét từng dòng.",
+        "Lưu lại cả prompt và đầu ra AI làm minh chứng đối chiếu.",
+      ],
+      improvements: [
+        "Nên thử thêm một prompt trung gian giữa hai phiên bản để thấy rõ tiến hoá.",
+        "Cần kiểm chứng nội dung AI trả về bằng nguồn học thuật ngoài.",
+      ],
+      takeaways: [
+        "Cùng chủ đề, prompt khác nhau cho ra kết quả rất khác về chất lượng.",
+        "Một prompt tốt giống như một bản mô tả yêu cầu công việc rõ ràng.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "AI đóng đúng vai trò công cụ: nhận prompt, trả kết quả.",
+        "Tôi là người đặt câu hỏi, thiết kế tiêu chí, đánh giá và biên tập đầu ra.",
+      ],
+      commitments: [
+        "Cả prompt ban đầu và prompt cải tiến đều do tôi tự viết.",
+        "Bảng so sánh và nhận xét là quan sát trực tiếp của tôi.",
+        "Không sao chép nguyên văn đầu ra AI vào báo cáo khi chưa biên tập.",
+      ],
+    },
     tags: ["Prompt Engineering", "Comparative Analysis", "AI Literacy"],
     progress: 100,
     prompts: {
@@ -162,6 +240,32 @@ const PROJECTS = [
       "Làm việc nhóm hiệu quả cần kế hoạch rõ ràng và công cụ phù hợp.",
       "Công cụ số nâng cao tính trách nhiệm và khả năng phối hợp.",
     ],
+    evaluation: {
+      strengths: [
+        "Bảng Trello 4 cột phản ánh đúng luồng công việc của nhóm.",
+        "Mỗi nhiệm vụ đều có người phụ trách, hạn chót và mức ưu tiên rõ ràng.",
+        "Duy trì họp định kỳ 2 lần/tuần và ghi biên bản trên card.",
+      ],
+      improvements: [
+        "Cần thêm cột 'Review' trước cột 'Hoàn thành' để tăng chất lượng.",
+        "Một số card còn thiếu mô tả và tiêu chí nghiệm thu (Definition of Done).",
+      ],
+      takeaways: [
+        "Minh bạch tiến độ giúp giảm xung đột và hiểu lầm trong nhóm.",
+        "Vai trò 'điều phối' rất cần thiết để chốt hạn và đẩy tiến độ.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "Không dùng AI để phân công công việc thay cho nhóm.",
+        "AI chỉ hỗ trợ gợi ý mẫu template Trello và cách đặt tên card.",
+      ],
+      commitments: [
+        "Việc phân công là quyết định thống nhất của cả nhóm.",
+        "Ảnh chụp bảng Trello là dữ liệu thật của dự án đang thực hiện.",
+        "Trạng thái công việc được cập nhật đúng với thực tế triển khai.",
+      ],
+    },
     tags: ["Collaboration", "Project Management", "Agile"],
     progress: 100,
     team: {
@@ -200,6 +304,32 @@ const PROJECTS = [
       "AI là công cụ hỗ trợ sáng tạo, không thay thế tư duy cá nhân.",
       "Cần biết chọn lọc, biên tập và chịu trách nhiệm với nội dung tạo ra.",
     ],
+    evaluation: {
+      strengths: [
+        "Quy trình 6 bước có bước kiểm duyệt cá nhân xen kẽ ở mỗi khâu.",
+        "Kết hợp nhiều công cụ AI: viết kịch bản, tạo ảnh, giọng đọc TTS.",
+        "Sản phẩm cuối có phụ đề, nhạc nền không bản quyền và ghi credit rõ.",
+      ],
+      improvements: [
+        "Giọng TTS còn hơi máy — nên thu âm thật ở một số phân đoạn quan trọng.",
+        "Một số ảnh do AI tạo cần chỉnh lại cho phù hợp bối cảnh Việt Nam.",
+      ],
+      takeaways: [
+        "AI rút ngắn thời gian sản xuất video từ nhiều ngày xuống vài giờ.",
+        "Chất lượng cuối cùng phụ thuộc chủ yếu vào khâu biên tập của con người.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "AI hỗ trợ: viết nháp kịch bản, tạo hình minh hoạ, tạo giọng đọc.",
+        "Tôi biên tập, kiểm duyệt nội dung và chịu trách nhiệm cuối cùng với sản phẩm.",
+      ],
+      commitments: [
+        "Kịch bản cuối cùng và lời dẫn do tôi trực tiếp chỉnh sửa.",
+        "Ghi rõ các công cụ AI đã sử dụng trong mô tả sản phẩm.",
+        "Không sử dụng hình ảnh, âm thanh vi phạm bản quyền.",
+      ],
+    },
     tags: ["Generative AI", "Content Production", "Human-in-the-loop"],
     progress: 100,
   },
@@ -225,6 +355,32 @@ const PROJECTS = [
       "Trách nhiệm số là kỹ năng cốt lõi trong thời đại AI.",
       "Sử dụng AI đúng cách giúp phát triển bền vững hơn thay vì phụ thuộc.",
     ],
+    evaluation: {
+      strengths: [
+        "Bộ 7 nguyên tắc bao phủ đủ các nhóm rủi ro chính của việc dùng AI.",
+        "Đối chiếu với chính sách của UNESCO, OECD và Bộ GD&ĐT Việt Nam.",
+        "Mỗi nguyên tắc đi kèm cam kết hành động cụ thể, không chung chung.",
+      ],
+      improvements: [
+        "Cần cụ thể hoá cách ghi chú vai trò AI khi nộp bài (mẫu trích dẫn AI).",
+        "Bổ sung các tình huống thực tế để kiểm tra tính khả thi của nguyên tắc.",
+      ],
+      takeaways: [
+        "Trung thực học thuật là ranh giới không thể thoả hiệp với bất kỳ công cụ nào.",
+        "Sử dụng AI đúng đắn giúp học sâu hơn, thay vì làm bài hời hợt.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "Bài này thảo luận VỀ AI, không dùng AI để sinh nội dung phân tích.",
+        "Mọi lập luận, ví dụ và cam kết đều do tôi tự viết dựa trên tài liệu tham khảo.",
+      ],
+      commitments: [
+        "Tôi cam kết tuân thủ 7 nguyên tắc đã đặt ra trong suốt quá trình học.",
+        "Luôn ghi rõ vai trò AI trong mọi sản phẩm học tập có sử dụng AI.",
+        "Chịu trách nhiệm cuối cùng với mọi bài nộp dù có hay không có AI hỗ trợ.",
+      ],
+    },
     tags: ["AI Ethics", "Academic Integrity", "Digital Citizenship"],
     progress: 100,
     principles: [
@@ -902,6 +1058,63 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
             ))}
           </ul>
         </Block>
+
+        {project.evaluation && (
+          <Block title="📊 Phân tích – Đánh giá">
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-primary">
+                  <CheckCircle2 className="h-4 w-4" /> Điểm tốt
+                </div>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {project.evaluation.strengths.map((s: string, i: number) => (
+                    <li key={i} className="flex gap-2"><span className="text-primary">•</span><span>{s}</span></li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-secondary/25 bg-secondary/5 p-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-secondary-foreground">
+                  <Target className="h-4 w-4 text-secondary" /> Cần cải thiện
+                </div>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {project.evaluation.improvements.map((s: string, i: number) => (
+                    <li key={i} className="flex gap-2"><span className="text-secondary">•</span><span>{s}</span></li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-secondary/5 p-4">
+                <div className="flex items-center gap-2 text-sm font-bold">
+                  <Sparkles className="h-4 w-4 text-primary" /> Bài học rút ra
+                </div>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {project.evaluation.takeaways.map((s: string, i: number) => (
+                    <li key={i} className="flex gap-2"><span className="text-primary">•</span><span>{s}</span></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Block>
+        )}
+
+        {project.integrity && (
+          <Block title="🛡️ Liêm chính học thuật & Sử dụng AI">
+            <div className="rounded-2xl border border-border bg-card p-5">
+              <div className="text-sm font-bold">Cách tôi sử dụng AI:</div>
+              <ul className="mt-2 space-y-1.5 text-sm">
+                {project.integrity.aiUsage.map((s: string, i: number) => (
+                  <li key={i} className="flex gap-2"><ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-primary" /><span>{s}</span></li>
+                ))}
+              </ul>
+              <div className="mt-4 text-sm font-bold">Cam kết liêm chính:</div>
+              <ul className="mt-2 space-y-1.5 text-sm">
+                {project.integrity.commitments.map((s: string, i: number) => (
+                  <li key={i} className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-secondary" /><span>{s}</span></li>
+                ))}
+              </ul>
+            </div>
+          </Block>
+        )}
+
 
         <div className="mt-6 flex flex-wrap gap-2">
           {project.tags.map((t: string) => (
