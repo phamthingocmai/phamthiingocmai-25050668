@@ -529,12 +529,12 @@ function About() {
               </p>
             </div>
             <ul className="mt-6 space-y-3 text-sm">
-              <InfoRow icon={IdCard} label="Mã sinh viên (MSV)" value="[Điền MSV]" />
-              <InfoRow icon={Users} label="Lớp" value="[Điền lớp]" />
-              <InfoRow icon={School} label="Trường" value="[Điền trường]" />
-              <InfoRow icon={GraduationCap} label="Ngành học" value="[Điền ngành học]" />
-              <InfoRow icon={Calendar} label="Khóa / Năm học" value="[Điền khóa]" />
-              <InfoRow icon={Mail} label="Email" value="[email@example.com]" />
+              <InfoRow icon={IdCard} label="Mã sinh viên (MSV)" value="25050668" />
+              <InfoRow icon={Users} label="Lớp" value="QH-2025-E KTPT7" />
+              <InfoRow icon={School} label="Trường" value="Đại học Kinh tế - ĐHQGHN" />
+              <InfoRow icon={GraduationCap} label="Khoa / Ngành" value="Khoa Kinh tế Phát triển" />
+              <InfoRow icon={Calendar} label="Khóa" value="QH-2025-E" />
+              <InfoRow icon={Mail} label="Email" value="25050668@vnu.edu.vn" />
               <InfoRow icon={Phone} label="Số điện thoại" value="[Điền SĐT]" />
             </ul>
           </div>
@@ -1105,9 +1105,9 @@ function Footer() {
           <div className="text-sm">
             <h5 className="font-bold">Liên hệ</h5>
             <ul className="mt-3 space-y-1.5 text-muted-foreground">
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> [email@example.com]</li>
-              <li>Điện thoại: [số điện thoại]</li>
-              <li>Trường / Lớp: [Điền trường / lớp]</li>
+              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> 25050668@vnu.edu.vn</li>
+              <li>MSV: 25050668</li>
+              <li>Trường: ĐH Kinh tế - ĐHQGHN · Lớp QH-2025-E KTPT7</li>
             </ul>
           </div>
         </div>
