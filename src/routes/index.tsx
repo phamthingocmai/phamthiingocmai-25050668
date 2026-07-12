@@ -13,6 +13,7 @@ import bai4Report from "@/assets/bai4/report.docx.asset.json";
 import bai5Report from "@/assets/bai5/report.docx.asset.json";
 import bai6Report from "@/assets/bai6/report.docx.asset.json";
 import bai2Report from "@/assets/bai2/report.zip.asset.json";
+import bai2Docx from "@/assets/bai2/report.docx.asset.json";
 
 // Load all Bài 1 evidence images (28 ảnh) — sorted by filename
 const bai1ImageModules = import.meta.glob<{ default: { url: string } }>(
@@ -304,10 +305,17 @@ const PROJECTS = [
     },
     evidenceImages: BAI2_IMAGES,
     attachment: {
-      url: bai2Report.url,
-      name: "Bài 2 – Ảnh chụp 12 nguồn tham khảo (.zip)",
-      size: "12 ảnh minh chứng",
+      url: bai2Docx.url,
+      name: "Bài 2 – Báo cáo (.docx)",
+      size: "Bản báo cáo đầy đủ",
     },
+    extraAttachments: [
+      {
+        url: bai2Report.url,
+        name: "Bài 2 – Ảnh chụp 12 nguồn tham khảo (.zip)",
+        size: "12 ảnh minh chứng",
+      },
+    ],
   },
   {
     id: 3,
@@ -1435,6 +1443,20 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                   <Download className="h-3.5 w-3.5 transition group-hover:translate-y-0.5" />
                 </a>
               )}
+              {project.extraAttachments?.map((att: { url: string; name: string }, i: number) => (
+                <a
+                  key={i}
+                  href={att.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  className="group inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary/20"
+                >
+                  <FileText className="h-3.5 w-3.5" />
+                  {att.name}
+                  <Download className="h-3.5 w-3.5 transition group-hover:translate-y-0.5" />
+                </a>
+              ))}
               {!project.attachment && (
                 <span className="text-xs text-muted-foreground">Bấm vào ảnh để phóng to nét</span>
               )}
