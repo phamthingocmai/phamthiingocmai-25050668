@@ -679,7 +679,7 @@ function About() {
               <span className="text-5xl font-black">SV</span>
             </div>
             <div className="mt-6 text-center">
-              <h3 className="text-2xl font-bold">[Điền tên của bạn]</h3>
+              <h3 className="text-2xl font-bold">Phạm Thị Ngọc Mai</h3>
               <p className="mt-1 text-sm text-muted-foreground">
                 Sinh viên · Học tập chủ động với công nghệ số & AI
               </p>
@@ -1401,7 +1401,7 @@ function Footer() {
           <div className="text-sm">
             <h5 className="font-bold">Thông tin</h5>
             <ul className="mt-3 space-y-1.5 text-muted-foreground">
-              <li>Sinh viên: <span className="text-foreground font-medium">[Điền tên của bạn]</span></li>
+              <li>Sinh viên: <span className="text-foreground font-medium">Phạm Thị Ngọc Mai</span></li>
               <li>Môn học: Nhập môn Công nghệ số & AI</li>
               <li>Năm học: 2025 – 2026</li>
             </ul>
