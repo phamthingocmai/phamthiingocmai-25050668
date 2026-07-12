@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Portfolio Kỹ thuật số cá nhân" },
-      { name: "description", content: "Hành trình học tập môn Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo — tổng hợp 6 bài tập cuối kỳ, minh chứng và bài học." },
+      { name: "description", content: "Hành trình học tập môn Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo — tổng hợp 6 dự án, minh chứng và bài học." },
     ],
   }),
   component: PortfolioPage,
@@ -598,7 +598,7 @@ function Hero() {
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
             Hành trình học tập môn <em>Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo</em> —
-            tổng hợp 6 bài tập cuối kỳ, minh chứng, phân tích và bài học rút ra qua một sản phẩm số hoàn chỉnh.
+            tổng hợp 6 dự án, minh chứng, phân tích và bài học rút ra qua một sản phẩm số hoàn chỉnh.
           </p>
           <p className="mt-3 text-sm text-muted-foreground max-w-2xl">
             Portfolio là nơi em lưu trữ, trình bày và tự đánh giá quá trình học tập — thể hiện năng lực
