@@ -1204,15 +1204,6 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
           </Block>
         )}
 
-        <Block title="📸 Minh chứng">
-          <div className="rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5 p-6 text-center">
-            <ImageIcon className="mx-auto h-8 w-8 text-primary/60" />
-            <p className="mt-2 text-sm text-muted-foreground">{project.evidence}</p>
-            <p className="mt-1 text-xs text-muted-foreground italic">
-              (Placeholder — thay bằng minh chứng thật khi nộp)
-            </p>
-          </div>
-        </Block>
 
         <Block title="🔍 Phân tích">
           <ul className="space-y-2 text-sm">
