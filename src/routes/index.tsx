@@ -304,6 +304,32 @@ const PROJECTS = [
       "AI là công cụ hỗ trợ sáng tạo, không thay thế tư duy cá nhân.",
       "Cần biết chọn lọc, biên tập và chịu trách nhiệm với nội dung tạo ra.",
     ],
+    evaluation: {
+      strengths: [
+        "Quy trình 6 bước có bước kiểm duyệt cá nhân xen kẽ ở mỗi khâu.",
+        "Kết hợp nhiều công cụ AI: viết kịch bản, tạo ảnh, giọng đọc TTS.",
+        "Sản phẩm cuối có phụ đề, nhạc nền không bản quyền và ghi credit rõ.",
+      ],
+      improvements: [
+        "Giọng TTS còn hơi máy — nên thu âm thật ở một số phân đoạn quan trọng.",
+        "Một số ảnh do AI tạo cần chỉnh lại cho phù hợp bối cảnh Việt Nam.",
+      ],
+      takeaways: [
+        "AI rút ngắn thời gian sản xuất video từ nhiều ngày xuống vài giờ.",
+        "Chất lượng cuối cùng phụ thuộc chủ yếu vào khâu biên tập của con người.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "AI hỗ trợ: viết nháp kịch bản, tạo hình minh hoạ, tạo giọng đọc.",
+        "Tôi biên tập, kiểm duyệt nội dung và chịu trách nhiệm cuối cùng với sản phẩm.",
+      ],
+      commitments: [
+        "Kịch bản cuối cùng và lời dẫn do tôi trực tiếp chỉnh sửa.",
+        "Ghi rõ các công cụ AI đã sử dụng trong mô tả sản phẩm.",
+        "Không sử dụng hình ảnh, âm thanh vi phạm bản quyền.",
+      ],
+    },
     tags: ["Generative AI", "Content Production", "Human-in-the-loop"],
     progress: 100,
   },
