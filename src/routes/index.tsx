@@ -800,7 +800,7 @@ function Hero() {
           >
             Portfolio
             <br />
-            <span className="italic bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="inline-block italic bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent pr-[0.15em]">
               Kỹ thuật số cá nhân.
             </span>
           </h1>
