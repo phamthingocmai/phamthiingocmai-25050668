@@ -1116,6 +1116,45 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
           </Block>
         )}
 
+        <Block title="🖼️ Ảnh minh chứng thực hành (10 ảnh)">
+          <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-secondary/5 p-5">
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2 text-sm font-semibold">
+                <ImageIcon className="h-4 w-4 text-primary" />
+                Bộ ảnh minh chứng cho Bài {project.id}
+              </div>
+              <span className="text-xs text-muted-foreground">Bấm vào ảnh để phóng to nét</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
+              {Array.from({ length: 10 }).map((_, i) => (
+                <figure
+                  key={i}
+                  className="group overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1"
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+                    <div className="absolute inset-0 grid place-items-center text-center">
+                      <div>
+                        <ImageIcon className="mx-auto h-8 w-8 text-primary/60" />
+                        <div className="mt-2 text-xs font-medium text-muted-foreground">
+                          Ảnh #{i + 1}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption className="border-t border-border bg-card px-3 py-2.5 text-xs font-medium text-foreground/80">
+                    {i + 1}. Minh chứng thực hành — Bài {project.id}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">
+              * Chèn ảnh chụp màn hình / sản phẩm thực hành vào từng ô. Kích thước khuyến nghị: 1200×900px, định dạng PNG hoặc JPG.
+            </p>
+          </div>
+        </Block>
+
+
+
 
         <div className="mt-6 flex flex-wrap gap-2">
           {project.tags.map((t: string) => (
