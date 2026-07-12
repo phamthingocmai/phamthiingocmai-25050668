@@ -290,6 +290,12 @@ const PROJECTS = [
         ],
       },
     },
+    evidenceImages: BAI3_IMAGES,
+    attachment: {
+      url: bai3Report.url,
+      name: "Bài 3 – Ứng dụng kỹ năng viết Prompt trong học tập (.docx)",
+      size: "Báo cáo đầy đủ",
+    },
   },
   {
     id: 4,
