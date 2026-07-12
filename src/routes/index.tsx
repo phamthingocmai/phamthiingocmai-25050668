@@ -70,6 +70,25 @@ const BAI3_IMAGES = Object.entries(bai3ImageModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, mod], i) => ({ url: mod.default.url, caption: BAI3_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
 
+// Bài 4 – 8 ảnh minh chứng
+const bai4ImageModules = import.meta.glob<{ default: { url: string } }>(
+  "@/assets/bai4/step-*.{jpg,png}.asset.json",
+  { eager: true }
+);
+const BAI4_CAPTIONS = [
+  "Bảng Trello – phân công nhiệm vụ cho nhóm (To-do / Doing / Done)",
+  "Trello – theo dõi tiến độ các thẻ công việc",
+  "Google Docs – tài liệu nhóm chung với phân công chi tiết",
+  "Google Docs – nội dung ứng dụng AI trong Khoa học sức khoẻ",
+  "Google Docs – comment & chỉnh sửa trực tiếp phần thành viên",
+  "Google Meet – họp nhóm trực tuyến, chia sẻ tài liệu",
+  "Google Drive – thư mục CNS (Nhóm 7) tổ chức khoa học",
+  "Google Drive – thư mục 'Tiến độ hoàn thành' của các thành viên",
+];
+const BAI4_IMAGES = Object.entries(bai4ImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], i) => ({ url: mod.default.url, caption: BAI4_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
