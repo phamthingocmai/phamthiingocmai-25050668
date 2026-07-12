@@ -1076,87 +1076,62 @@ function InfoRow({ icon: Icon, label, value }: any) {
 function Overview() {
   return (
     <section id="overview" className="relative py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Scientific header — hairline rule, monospace kicker */}
-        <div className="border-l-4 border-foreground pl-5 sm:pl-6">
-          <span className="mb-2 block font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
-            System Overview / Phase 01 · Hành trình
-          </span>
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground"
-            style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}
-          >
-            Tổng quan 6 nhiệm vụ học tập
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm sm:text-base text-muted-foreground">
-            Cấu trúc logic – hệ thống hoá kỹ năng số từ nền tảng đến AI có trách nhiệm.
-          </p>
-        </div>
-
-        {/* Scientific specimen grid */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border border-border bg-card">
-          {TASKS.map((t, i) => {
-            const Icon = t.icon;
-            const isRightCol = (i + 1) % 3 === 0; // last column on lg
-            const isLastRow = i >= TASKS.length - 3; // last row on lg (3 cols → last 3)
-            return (
-              <div
-                key={t.title}
-                className={`reveal group relative p-6 sm:p-7 transition-colors hover:bg-muted/40 ${
-                  !isRightCol ? "lg:border-r" : ""
-                } ${!isLastRow ? "lg:border-b" : ""} ${
-                  (i + 1) % 2 === 1 ? "md:border-r" : ""
-                } ${i < TASKS.length - 2 ? "md:border-b" : ""} border-border`}
-              >
-                {/* Top row: index chip + category */}
-                <div className="mb-5 flex items-start justify-between gap-3">
-                  <span className="font-mono text-xs font-medium bg-foreground text-background px-2 py-1">
-                    {String(i + 1).padStart(2, "0")}.0
-                  </span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground transition-colors group-hover:text-primary text-right">
-                    {t.tag}
-                  </span>
-                </div>
-
-                {/* Icon + title */}
-                <div className="mb-3 flex items-center gap-2.5">
-                  <span className="grid h-8 w-8 place-items-center rounded-md border border-border bg-background text-foreground">
-                    <Icon className="h-4 w-4" />
-                  </span>
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                    Nhiệm vụ {i + 1}
-                  </span>
-                </div>
-                <h4 className="text-lg font-bold leading-snug text-foreground">
-                  {t.title}
-                </h4>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {t.desc}
-                </p>
-
-                <button
-                  onClick={() => scrollToId("projects")}
-                  className="mt-6 inline-flex items-center gap-2 border-b-2 border-foreground pb-1 text-[11px] font-bold uppercase tracking-widest text-foreground transition-colors hover:text-primary hover:border-primary"
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <SectionTitle
+          kicker="Hành trình"
+          title="Tổng quan 6 nhiệm vụ học tập"
+          subtitle="Timeline khép kín từ kỹ năng nền tảng đến AI có trách nhiệm."
+        />
+        <div className="relative mt-14">
+          {/* line */}
+          <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/40 to-secondary lg:left-1/2 lg:-translate-x-1/2" />
+          <ul className="space-y-10">
+            {TASKS.map((t, i) => {
+              const Icon = t.icon;
+              const left = i % 2 === 0;
+              return (
+                <li
+                  key={t.title}
+                  className={`reveal relative grid grid-cols-[2.5rem_minmax(0,1fr)] gap-4 lg:grid-cols-2 lg:gap-10`}
                 >
-                  Xem chi tiết
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </button>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Scientific footer metadata */}
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          <div>Ref_ID · DLF-6-TASK-SET</div>
-          <div>Status · Academic Verified</div>
-          <div>Page · 01 / 01</div>
+                  {/* dot */}
+                  <div className="absolute left-4 lg:left-1/2 lg:-translate-x-1/2 grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg -translate-x-1/2">
+                    <span className="text-xs font-bold">{i + 1}</span>
+                  </div>
+                  <div className={`col-start-2 lg:col-start-1 ${left ? "lg:pr-16 lg:text-right" : "lg:col-start-2 lg:pl-16"}`}>
+                    <div className="inline-flex items-center gap-2 rounded-2xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]">
+                      <div className={`flex flex-col ${left ? "lg:items-end" : "lg:items-start"} items-start`}>
+                        <div className="flex items-center gap-2">
+                          <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary">
+                            <Icon className="h-5 w-5" />
+                          </span>
+                          <span className="text-xs font-semibold uppercase tracking-wide text-secondary">
+                            Nhiệm vụ {i + 1}
+                          </span>
+                        </div>
+                        <h4 className="mt-3 text-lg font-bold">{t.title}</h4>
+                        <p className="mt-1 text-sm text-muted-foreground max-w-md">{t.desc}</p>
+                        <span className="mt-3 rounded-full bg-secondary/20 px-3 py-1 text-xs font-medium text-secondary-foreground">
+                          {t.tag}
+                        </span>
+                        <button
+                          onClick={() => scrollToId("projects")}
+                          className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
+                        >
+                          Xem chi tiết <ArrowRight className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </section>
   );
 }
-
 
 // ============ PROJECTS ============
 function Projects({ onOpen }: { onOpen: (i: number) => void }) {
