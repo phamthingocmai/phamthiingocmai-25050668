@@ -564,109 +564,231 @@ function Navbar({ active }: { active: string }) {
 
 // ============ HERO ============
 function Hero() {
+  const meta = [
+    { k: "Môn học", v: "Nhập môn CN số & AI" },
+    { k: "Sinh viên", v: "Phạm Thị Ngọc Mai" },
+    { k: "Mã SV", v: "25050668" },
+    { k: "Năm học", v: "2025 – 2026" },
+  ];
+  const stats = [
+    { n: "06", l: "Dự án" },
+    { n: "08", l: "Kỹ năng" },
+    { n: "100", l: "Hoàn thành (%)" },
+  ];
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28"
+      className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-24"
+      style={{ fontFamily: "'Fira Sans', sans-serif" }}
     >
-      {/* Decorative blobs */}
+      {/* Subtle science-paper backdrop: soft blob + faint grid */}
       <div
         aria-hidden
-        className="animate-blob absolute -top-24 -left-24 h-96 w-96 bg-primary/25 blur-3xl"
+        className="animate-blob absolute -top-32 -left-24 h-96 w-96 rounded-full bg-primary/15 blur-3xl"
       />
       <div
         aria-hidden
-        className="animate-blob absolute -bottom-32 -right-24 h-[28rem] w-[28rem] bg-secondary/30 blur-3xl"
+        className="animate-blob absolute -bottom-40 -right-24 h-[28rem] w-[28rem] rounded-full bg-secondary/15 blur-3xl"
         style={{ animationDelay: "3s" }}
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, color-mix(in oklab, var(--foreground) 8%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 8%, transparent) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+          maskImage:
+            "radial-gradient(ellipse at center, black 45%, transparent 75%)",
+        }}
+      />
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
         <div className="reveal">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
-            <Sparkles className="h-3.5 w-3.5" />
-            Nhập môn Công nghệ số & Ứng dụng Trí tuệ nhân tạo
+          {/* Index / kicker */}
+          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.24em] text-muted-foreground">
+            <span className="font-mono text-primary">01</span>
+            <span className="h-px w-10 bg-border" />
+            <span>Portfolio · Học kỳ I</span>
           </div>
+
           <h1
-            className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight"
-            style={{ fontFamily: "'Fraunces', serif" }}
+            className="mt-6 text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-foreground"
+            style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}
           >
-            Portfolio{" "}
-            <span className="bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
-              Kỹ thuật số
-            </span>{" "}
-            cá nhân
+            Tri thức số,
+            <br />
+            <span className="italic bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              tư duy logic.
+            </span>
           </h1>
-          <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-            Hành trình học tập môn <em>Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo</em> —
-            tổng hợp 6 dự án, minh chứng, phân tích và bài học rút ra qua một sản phẩm số hoàn chỉnh.
+
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+            Một hành trình học tập được ghi lại có phương pháp — quan sát, đặt câu
+            hỏi, thử nghiệm và phản biện — qua sáu dự án trong môn{" "}
+            <em>Nhập môn Công nghệ số & Ứng dụng Trí tuệ nhân tạo</em>.
           </p>
-          <p className="mt-3 text-sm text-muted-foreground max-w-2xl">
-            Portfolio là nơi em lưu trữ, trình bày và tự đánh giá quá trình học tập — thể hiện năng lực
-            vận dụng công cụ số và AI một cách chủ động, sáng tạo và có trách nhiệm.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {[
-              { id: "about", label: "Giới thiệu", icon: Heart },
-              { id: "projects", label: "Dự án học tập", icon: Rocket },
-              { id: "evidence", label: "Minh chứng", icon: ImageIcon },
-              { id: "conclusion", label: "Tổng kết", icon: BookOpen },
-            ].map((b) => (
-              <button
-                key={b.id}
-                onClick={() => scrollToId(b.id)}
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-soft)] transition hover:scale-[1.03] hover:shadow-[var(--shadow-elegant)]"
-              >
-                <b.icon className="h-4 w-4" />
-                {b.label}
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-              </button>
+
+          {/* Meta grid — like a paper's front-matter */}
+          <dl className="mt-8 grid max-w-xl grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6 text-sm">
+            {meta.map((m) => (
+              <div key={m.k} className="min-w-0">
+                <dt className="text-[11px] uppercase tracking-widest text-muted-foreground">
+                  {m.k}
+                </dt>
+                <dd className="mt-1 truncate font-medium text-foreground">
+                  {m.v}
+                </dd>
+              </div>
             ))}
+          </dl>
+
+          {/* CTAs — minimal, two buttons */}
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <button
+              onClick={() => scrollToId("projects")}
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:opacity-90"
+            >
+              Khám phá 6 dự án
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </button>
+            <button
+              onClick={() => scrollToId("about")}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-primary/60 decoration-2 underline-offset-8 transition hover:decoration-primary"
+            >
+              Giới thiệu tác giả
+            </button>
           </div>
-          <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
-            {[
-              { n: "6", l: "Bài tập" },
-              { n: "8+", l: "Kỹ năng" },
-              { n: "100%", l: "Hoàn thành" },
-            ].map((s) => (
-              <div key={s.l} className="rounded-2xl border border-border bg-card/70 p-4 text-center backdrop-blur">
-                <div className="text-2xl font-extrabold text-primary">{s.n}</div>
-                <div className="text-xs text-muted-foreground">{s.l}</div>
+
+          {/* Stats — inline, editorial */}
+          <div className="mt-12 flex flex-wrap items-end gap-x-10 gap-y-4 border-t border-border pt-6">
+            {stats.map((s, i) => (
+              <div key={s.l} className="flex items-end gap-3">
+                <div
+                  className="text-3xl leading-none text-primary"
+                  style={{ fontFamily: "'DM Serif Display', serif" }}
+                >
+                  {s.n}
+                </div>
+                <div className="pb-1 text-xs uppercase tracking-widest text-muted-foreground">
+                  {s.l}
+                </div>
+                {i < stats.length - 1 && (
+                  <span className="ml-6 hidden h-6 w-px bg-border sm:inline-block" />
+                )}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Hero illustration */}
-        <div className="reveal relative flex justify-center">
-          <div className="animate-float relative aspect-square w-full max-w-md">
-            <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-primary/40 via-primary/20 to-secondary/40 blur-2xl" />
-            <div className="relative flex h-full w-full flex-col items-center justify-center rounded-[3rem] border border-white/60 bg-white/70 p-8 shadow-[var(--shadow-elegant)] backdrop-blur-xl">
-              <div className="grid h-28 w-28 place-items-center rounded-3xl bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg">
-                <Brain className="h-14 w-14" />
-              </div>
-              <div className="mt-6 text-center">
-                <div className="text-lg font-bold">AI × Học tập số</div>
-                <div className="mt-1 text-sm text-muted-foreground">
-                  Sáng tạo · Phản biện · Trách nhiệm
-                </div>
-              </div>
-              <div className="mt-6 grid w-full grid-cols-3 gap-3">
-                {[FolderTree, Search, Users, MessageSquareCode, Sparkles, ShieldCheck].map((Ic, i) => (
-                  <div
-                    key={i}
-                    className="grid aspect-square place-items-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary"
-                  >
-                    <Ic className="h-6 w-6" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        {/* Right: knowledge-graph diagram (single frame) */}
+        <div className="reveal relative hidden lg:block">
+          <KnowledgeDiagram />
         </div>
       </div>
     </section>
   );
 }
+
+function KnowledgeDiagram() {
+  // Central node "AI × Học tập số", 6 orbital nodes referencing project pillars.
+  const nodes = [
+    { label: "Tệp & Dữ liệu", icon: FolderTree, angle: -90 },
+    { label: "Nghiên cứu", icon: Search, angle: -30 },
+    { label: "Prompting", icon: MessageSquareCode, angle: 30 },
+    { label: "Hợp tác", icon: Users, angle: 90 },
+    { label: "Sáng tạo AI", icon: Sparkles, angle: 150 },
+    { label: "Đạo đức AI", icon: ShieldCheck, angle: 210 },
+  ];
+  const R = 42; // % radius
+  return (
+    <div
+      className="animate-float relative mx-auto aspect-square w-full max-w-md"
+      style={{ fontFamily: "'Fira Sans', sans-serif" }}
+    >
+      {/* Concentric guides */}
+      <svg
+        viewBox="0 0 100 100"
+        className="absolute inset-0 h-full w-full text-primary/25"
+        aria-hidden
+      >
+        <defs>
+          <linearGradient id="edge" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0.15" />
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" strokeWidth="0.2" strokeDasharray="1 1.5" />
+        <circle cx="50" cy="50" r="32" fill="none" stroke="currentColor" strokeWidth="0.2" strokeDasharray="1 1.5" />
+        <circle cx="50" cy="50" r="18" fill="none" stroke="currentColor" strokeWidth="0.2" strokeDasharray="1 1.5" />
+        {/* Edges from center to each node */}
+        {nodes.map((n, i) => {
+          const rad = (n.angle * Math.PI) / 180;
+          const x = 50 + R * Math.cos(rad);
+          const y = 50 + R * Math.sin(rad);
+          return (
+            <line
+              key={i}
+              x1="50"
+              y1="50"
+              x2={x}
+              y2={y}
+              stroke="url(#edge)"
+              strokeWidth="0.4"
+            />
+          );
+        })}
+        {/* Axis ticks */}
+        <line x1="4" y1="50" x2="96" y2="50" stroke="currentColor" strokeWidth="0.15" />
+        <line x1="50" y1="4" x2="50" y2="96" stroke="currentColor" strokeWidth="0.15" />
+      </svg>
+
+      {/* Center node */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="grid h-28 w-28 place-items-center rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-[var(--shadow-elegant)]">
+          <Brain className="h-10 w-10" />
+        </div>
+        <div className="mt-3 text-center">
+          <div
+            className="text-base text-foreground"
+            style={{ fontFamily: "'DM Serif Display', serif" }}
+          >
+            AI × Học tập số
+          </div>
+          <div className="mt-0.5 text-[10px] uppercase tracking-widest text-muted-foreground">
+            Sáng tạo · Phản biện · Trách nhiệm
+          </div>
+        </div>
+      </div>
+
+      {/* Orbital nodes */}
+      {nodes.map((n, i) => {
+        const rad = (n.angle * Math.PI) / 180;
+        const x = 50 + R * Math.cos(rad);
+        const y = 50 + R * Math.sin(rad);
+        const Ic = n.icon;
+        return (
+          <div
+            key={i}
+            className="absolute -translate-x-1/2 -translate-y-1/2"
+            style={{ left: `${x}%`, top: `${y}%` }}
+          >
+            <div className="group flex flex-col items-center gap-1">
+              <div className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card/90 text-primary shadow-sm backdrop-blur transition group-hover:scale-110">
+                <Ic className="h-5 w-5" />
+              </div>
+              <div className="whitespace-nowrap rounded-full bg-background/80 px-2 py-0.5 text-[10px] font-medium text-muted-foreground shadow-sm backdrop-blur">
+                {n.label}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+
 
 // ============ ABOUT ============
 function About() {
