@@ -10,6 +10,7 @@ import studentPhoto from "@/assets/student-photo.jpg.asset.json";
 import bai1Report from "@/assets/bai1/report.docx.asset.json";
 import bai3Report from "@/assets/bai3/report.docx.asset.json";
 import bai4Report from "@/assets/bai4/report.docx.asset.json";
+import bai5Report from "@/assets/bai5/report.docx.asset.json";
 
 // Load all Bài 1 evidence images (28 ảnh) — sorted by filename
 const bai1ImageModules = import.meta.glob<{ default: { url: string } }>(
@@ -88,6 +89,23 @@ const BAI4_CAPTIONS = [
 const BAI4_IMAGES = Object.entries(bai4ImageModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, mod], i) => ({ url: mod.default.url, caption: BAI4_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
+
+// Bài 5 – 6 ảnh minh chứng
+const bai5ImageModules = import.meta.glob<{ default: { url: string } }>(
+  "@/assets/bai5/step-*.{jpg,png}.asset.json",
+  { eager: true }
+);
+const BAI5_CAPTIONS = [
+  "ChatGPT – sinh nội dung 5 mục cho infographic 'AI trong học tập'",
+  "Adobe Firefly – ảnh minh hoạ 'Students powered by AI tools'",
+  "Adobe Firefly – biến thể phong cách flat, robot & AI concepts",
+  "Adobe Firefly – bộ icon công cụ AI trong giáo dục",
+  "Canva AI – thiết kế infographic từ nội dung ChatGPT + ảnh Firefly",
+  "Canva AI – 4 biến thể infographic pastel xanh/tím hoàn thiện",
+];
+const BAI5_IMAGES = Object.entries(bai5ImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], i) => ({ url: mod.default.url, caption: BAI5_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -435,6 +453,12 @@ const PROJECTS = [
     },
     tags: ["Generative AI", "Infographic", "Human-in-the-loop", "Content Creation"],
     progress: 100,
+    evidenceImages: BAI5_IMAGES,
+    attachment: {
+      url: bai5Report.url,
+      name: "Bài 5 – Sử dụng AI tạo sinh hỗ trợ sáng tạo nội dung số (.docx)",
+      size: "Báo cáo đầy đủ",
+    },
   },
   {
     id: 6,
