@@ -129,6 +129,12 @@ const PROJECTS = [
     },
     tags: ["File Management", "Windows", "Digital Hygiene"],
     progress: 100,
+    evidenceImages: BAI1_IMAGES,
+    attachment: {
+      url: bai1Report.url,
+      name: "Bài 1 – Thao tác tệp trên Windows (bản đầy đủ, .docx)",
+      size: "6.6 MB",
+    },
   },
   {
     id: 2,
