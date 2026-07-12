@@ -582,6 +582,44 @@ function About() {
                 ))}
               </ul>
             </div>
+
+            <div className="reveal rounded-3xl border border-border bg-card p-6">
+              <h4 className="flex items-center gap-2 text-lg font-bold">
+                <Rocket className="h-5 w-5 text-primary" /> Mục tiêu học tập
+              </h4>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {[
+                  "Nắm vững nền tảng công nghệ số và tư duy dữ liệu trong Kinh tế phát triển.",
+                  "Ứng dụng AI vào phân tích, nghiên cứu và ra quyết định kinh tế.",
+                  "Rèn kỹ năng tự học chủ động, phản biện và giải quyết vấn đề thực tế.",
+                  "Xây dựng thương hiệu học thuật cá nhân, sẵn sàng cho nghiên cứu và nghề nghiệp.",
+                ].map((t) => (
+                  <li
+                    key={t}
+                    className="flex gap-2 rounded-2xl bg-gradient-to-br from-secondary/10 to-primary/5 p-3 text-sm"
+                  >
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="reveal relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/10 via-card to-secondary/10 p-6">
+              <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/20 blur-2xl" />
+              <div className="absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-secondary/20 blur-2xl" />
+              <div className="relative">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
+                  <Sparkles className="h-4 w-4" /> Câu nói tâm đắc về AI
+                </div>
+                <blockquote className="mt-3 font-[family-name:var(--font-display)] text-xl leading-snug text-foreground sm:text-2xl">
+                  <span className="text-3xl leading-none text-primary">“</span>
+                  AI không thay thế con người, nhưng những người biết dùng AI sẽ thay thế những người không biết dùng nó. Với tôi, học AI là học cách tư duy nhanh hơn, sâu hơn và nhân văn hơn.
+                  <span className="text-3xl leading-none text-primary">”</span>
+                </blockquote>
+                <div className="mt-3 text-sm text-muted-foreground">— Suy ngẫm cá nhân trong hành trình học môn Nhập môn Công nghệ số & AI</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
