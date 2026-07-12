@@ -1401,7 +1401,7 @@ function Footer() {
           <div className="text-sm">
             <h5 className="font-bold">Thông tin</h5>
             <ul className="mt-3 space-y-1.5 text-muted-foreground">
-              <li>Sinh viên: <span className="text-foreground font-medium">[Điền tên của bạn]</span></li>
+              <li>Sinh viên: <span className="text-foreground font-medium">Phạm Thị Ngọc Mai</span></li>
               <li>Môn học: Nhập môn Công nghệ số & AI</li>
               <li>Năm học: 2025 – 2026</li>
             </ul>
