@@ -1059,6 +1059,63 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
           </ul>
         </Block>
 
+        {project.evaluation && (
+          <Block title="📊 Phân tích – Đánh giá">
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-primary">
+                  <CheckCircle2 className="h-4 w-4" /> Điểm tốt
+                </div>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {project.evaluation.strengths.map((s: string, i: number) => (
+                    <li key={i} className="flex gap-2"><span className="text-primary">•</span><span>{s}</span></li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-secondary/25 bg-secondary/5 p-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-secondary-foreground">
+                  <Target className="h-4 w-4 text-secondary" /> Cần cải thiện
+                </div>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {project.evaluation.improvements.map((s: string, i: number) => (
+                    <li key={i} className="flex gap-2"><span className="text-secondary">•</span><span>{s}</span></li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-secondary/5 p-4">
+                <div className="flex items-center gap-2 text-sm font-bold">
+                  <Sparkles className="h-4 w-4 text-primary" /> Bài học rút ra
+                </div>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {project.evaluation.takeaways.map((s: string, i: number) => (
+                    <li key={i} className="flex gap-2"><span className="text-primary">•</span><span>{s}</span></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Block>
+        )}
+
+        {project.integrity && (
+          <Block title="🛡️ Liêm chính học thuật & Sử dụng AI">
+            <div className="rounded-2xl border border-border bg-card p-5">
+              <div className="text-sm font-bold">Cách tôi sử dụng AI:</div>
+              <ul className="mt-2 space-y-1.5 text-sm">
+                {project.integrity.aiUsage.map((s: string, i: number) => (
+                  <li key={i} className="flex gap-2"><ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-primary" /><span>{s}</span></li>
+                ))}
+              </ul>
+              <div className="mt-4 text-sm font-bold">Cam kết liêm chính:</div>
+              <ul className="mt-2 space-y-1.5 text-sm">
+                {project.integrity.commitments.map((s: string, i: number) => (
+                  <li key={i} className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-secondary" /><span>{s}</span></li>
+                ))}
+              </ul>
+            </div>
+          </Block>
+        )}
+
+
         <div className="mt-6 flex flex-wrap gap-2">
           {project.tags.map((t: string) => (
             <span key={t} className="rounded-full bg-gradient-to-r from-primary/15 to-secondary/15 px-3 py-1 text-xs font-medium">
