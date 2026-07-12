@@ -12,6 +12,7 @@ import bai3Report from "@/assets/bai3/report.docx.asset.json";
 import bai4Report from "@/assets/bai4/report.docx.asset.json";
 import bai5Report from "@/assets/bai5/report.docx.asset.json";
 import bai6Report from "@/assets/bai6/report.docx.asset.json";
+import bai2Report from "@/assets/bai2/report.zip.asset.json";
 
 // Load all Bài 1 evidence images (28 ảnh) — sorted by filename
 const bai1ImageModules = import.meta.glob<{ default: { url: string } }>(
