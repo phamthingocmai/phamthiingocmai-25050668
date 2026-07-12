@@ -1522,43 +1522,114 @@ function TableBlock({ data, noWrap }: { data: any; noWrap?: boolean }) {
 }
 
 // ============ EVIDENCE GALLERY ============
+const EVIDENCE_GROUPS: { bai: number; label: string; images: { url: string; caption: string }[] }[] = [
+  { bai: 1, label: "Bài 1 – Quản lý tệp & thư mục", images: BAI1_IMAGES },
+  { bai: 3, label: "Bài 3 – Prompt Engineering", images: BAI3_IMAGES },
+  { bai: 4, label: "Bài 4 – Làm việc nhóm trực tuyến", images: BAI4_IMAGES },
+  { bai: 5, label: "Bài 5 – Sáng tạo nội dung số với AI", images: BAI5_IMAGES },
+  { bai: 6, label: "Bài 6 – AI có trách nhiệm", images: BAI6_IMAGES },
+];
+
 function Evidence() {
+  const [filter, setFilter] = useState<number | "all">("all");
+  const [lightbox, setLightbox] = useState<{ url: string; caption: string; bai: number } | null>(null);
+
+  const allItems = EVIDENCE_GROUPS.flatMap((g) =>
+    g.images.map((img) => ({ ...img, bai: g.bai, label: g.label }))
+  );
+  const filtered = filter === "all" ? allItems : allItems.filter((it) => it.bai === filter);
+  const total = allItems.length;
+
   return (
     <section id="evidence" className="relative py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionTitle
           kicker="Minh chứng"
           title="Evidence Gallery"
-          subtitle="Thư viện minh chứng trực quan\u00a0"
+          subtitle={`Thư viện minh chứng trực quan — ${total} ảnh từ 5 bài thực hành`}
         />
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {EVIDENCE.map((e, i) => (
-            <div
-              key={e.title}
-              className="reveal group overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+
+        {/* Filter tabs */}
+        <div className="reveal mt-8 flex flex-wrap justify-center gap-2">
+          <button
+            onClick={() => setFilter("all")}
+            className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
+              filter === "all"
+                ? "border-primary bg-primary text-primary-foreground shadow"
+                : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-primary"
+            }`}
+          >
+            Tất cả ({total})
+          </button>
+          {EVIDENCE_GROUPS.map((g) => (
+            <button
+              key={g.bai}
+              onClick={() => setFilter(g.bai)}
+              className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
+                filter === g.bai
+                  ? "border-primary bg-primary text-primary-foreground shadow"
+                  : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-primary"
+              }`}
             >
-              <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-primary/30 via-primary/10 to-secondary/30">
-                <div className="absolute inset-0 grid place-items-center">
-                  {i === 4 ? (
-                    <PlayCircle className="h-16 w-16 text-primary/70 transition group-hover:scale-110" />
-                  ) : (
-                    <ImageIcon className="h-14 w-14 text-primary/60 transition group-hover:scale-110" />
-                  )}
-                </div>
-                <span className="absolute left-3 top-3 rounded-full bg-white/80 px-2.5 py-0.5 text-xs font-semibold text-primary backdrop-blur">
-                  #{i + 1}
+              Bài {g.bai} ({g.images.length})
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {filtered.map((img, i) => (
+            <button
+              key={`${img.bai}-${i}-${img.url}`}
+              onClick={() => setLightbox(img)}
+              className="reveal group relative overflow-hidden rounded-2xl border border-border bg-card text-left shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+            >
+              <div className="relative aspect-video overflow-hidden bg-muted">
+                <img
+                  src={img.url}
+                  alt={img.caption}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <span className="absolute left-2 top-2 rounded-full bg-primary/90 px-2 py-0.5 text-[10px] font-bold text-primary-foreground backdrop-blur">
+                  Bài {img.bai}
                 </span>
               </div>
-              <div className="p-5">
-                <h4 className="font-bold">{e.title}</h4>
-                <p className="mt-1 text-sm text-muted-foreground">{e.desc}</p>
-                <button className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all">
-                  Xem chi tiết <ArrowRight className="h-4 w-4" />
+              <div className="p-3">
+                <p className="line-clamp-2 text-xs font-medium text-foreground/90">{img.caption}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {/* Lightbox */}
+        {lightbox && (
+          <div
+            onClick={() => setLightbox(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-2xl bg-card shadow-2xl"
+            >
+              <img src={lightbox.url} alt={lightbox.caption} className="max-h-[75vh] w-full object-contain bg-black" />
+              <div className="flex items-start justify-between gap-4 p-4">
+                <div>
+                  <span className="inline-block rounded-full bg-primary/10 px-2 py-0.5 text-xs font-bold text-primary">
+                    Bài {lightbox.bai}
+                  </span>
+                  <p className="mt-2 text-sm font-medium">{lightbox.caption}</p>
+                </div>
+                <button
+                  onClick={() => setLightbox(null)}
+                  className="shrink-0 rounded-full border border-border px-3 py-1 text-sm font-semibold hover:bg-muted"
+                >
+                  Đóng
                 </button>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );
