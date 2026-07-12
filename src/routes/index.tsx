@@ -866,7 +866,7 @@ function Projects({ onOpen }: { onOpen: (i: number) => void }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionTitle
           kicker="Dự án"
-          title="6 bài tập cuối kỳ"
+          title="Dự án của một hành trình"
           subtitle="Mỗi bài tập gồm mục tiêu, quá trình, công cụ, minh chứng, phân tích và bài học."
         />
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -1212,7 +1212,7 @@ function Evidence() {
         <SectionTitle
           kicker="Minh chứng"
           title="Evidence Gallery"
-          subtitle="Thư viện minh chứng trực quan — có thể thay ảnh thật khi nộp bài."
+          subtitle="Thư viện minh chứng trực quan\u00a0"
         />
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {EVIDENCE.map((e, i) => (
@@ -1501,9 +1501,9 @@ function Conclusion() {
 
           <div className="mt-6 flex flex-col gap-3 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 p-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm">
-              <span className="font-bold">Ký xác nhận:</span> Trần / Nguyễn... — MSV 25050668 — Lớp QH-2025-E KTPT7
+              {"\n"}
             </p>
-            <p className="text-xs text-muted-foreground">Hà Nội, năm học 2025 – 2026</p>
+            <p className="text-xs text-muted-foreground">{"\n"}</p>
           </div>
         </div>
       </div>
