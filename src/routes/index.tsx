@@ -355,6 +355,32 @@ const PROJECTS = [
       "Trách nhiệm số là kỹ năng cốt lõi trong thời đại AI.",
       "Sử dụng AI đúng cách giúp phát triển bền vững hơn thay vì phụ thuộc.",
     ],
+    evaluation: {
+      strengths: [
+        "Bộ 7 nguyên tắc bao phủ đủ các nhóm rủi ro chính của việc dùng AI.",
+        "Đối chiếu với chính sách của UNESCO, OECD và Bộ GD&ĐT Việt Nam.",
+        "Mỗi nguyên tắc đi kèm cam kết hành động cụ thể, không chung chung.",
+      ],
+      improvements: [
+        "Cần cụ thể hoá cách ghi chú vai trò AI khi nộp bài (mẫu trích dẫn AI).",
+        "Bổ sung các tình huống thực tế để kiểm tra tính khả thi của nguyên tắc.",
+      ],
+      takeaways: [
+        "Trung thực học thuật là ranh giới không thể thoả hiệp với bất kỳ công cụ nào.",
+        "Sử dụng AI đúng đắn giúp học sâu hơn, thay vì làm bài hời hợt.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "Bài này thảo luận VỀ AI, không dùng AI để sinh nội dung phân tích.",
+        "Mọi lập luận, ví dụ và cam kết đều do tôi tự viết dựa trên tài liệu tham khảo.",
+      ],
+      commitments: [
+        "Tôi cam kết tuân thủ 7 nguyên tắc đã đặt ra trong suốt quá trình học.",
+        "Luôn ghi rõ vai trò AI trong mọi sản phẩm học tập có sử dụng AI.",
+        "Chịu trách nhiệm cuối cùng với mọi bài nộp dù có hay không có AI hỗ trợ.",
+      ],
+    },
     tags: ["AI Ethics", "Academic Integrity", "Digital Citizenship"],
     progress: 100,
     principles: [
