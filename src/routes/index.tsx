@@ -1105,9 +1105,9 @@ function Footer() {
           <div className="text-sm">
             <h5 className="font-bold">Liên hệ</h5>
             <ul className="mt-3 space-y-1.5 text-muted-foreground">
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> [email@example.com]</li>
-              <li>Điện thoại: [số điện thoại]</li>
-              <li>Trường / Lớp: [Điền trường / lớp]</li>
+              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> 25050668@vnu.edu.vn</li>
+              <li>MSV: 25050668</li>
+              <li>Trường: ĐH Kinh tế - ĐHQGHN · Lớp QH-2025-E KTPT7</li>
             </ul>
           </div>
         </div>
