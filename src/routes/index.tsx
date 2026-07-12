@@ -378,6 +378,12 @@ const PROJECTS = [
         ["Thành viên 5", "Kiểm tra chính tả, đối chiếu tài liệu tham khảo, nộp bài", "Ngày 7", "≥ 5 lần/tuần"],
       ],
     },
+    evidenceImages: BAI4_IMAGES,
+    attachment: {
+      url: bai4Report.url,
+      name: "Bài 4 – Trải nghiệm hợp tác trực tuyến trong dự án nhóm (.docx)",
+      size: "Báo cáo đầy đủ",
+    },
   },
   {
     id: 5,
