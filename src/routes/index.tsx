@@ -679,7 +679,7 @@ function About() {
               <span className="text-5xl font-black">SV</span>
             </div>
             <div className="mt-6 text-center">
-              <h3 className="text-2xl font-bold">[Điền tên của bạn]</h3>
+              <h3 className="text-2xl font-bold">Phạm Thị Ngọc Mai</h3>
               <p className="mt-1 text-sm text-muted-foreground">
                 Sinh viên · Học tập chủ động với công nghệ số & AI
               </p>
