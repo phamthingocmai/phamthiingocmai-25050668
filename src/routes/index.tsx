@@ -108,6 +108,20 @@ const BAI5_IMAGES = Object.entries(bai5ImageModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, mod], i) => ({ url: mod.default.url, caption: BAI5_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
 
+// Bài 6 – 3 ảnh minh chứng
+const bai6ImageModules = import.meta.glob<{ default: { url: string } }>(
+  "@/assets/bai6/step-*.{jpg,png}.asset.json",
+  { eager: true }
+);
+const BAI6_CAPTIONS = [
+  "ChatGPT – Đoạn kết luận về trách nhiệm của thế hệ trẻ trong giữ gìn văn hoá dân tộc",
+  "ChatGPT – Phân tích thách thức bảo tồn văn hoá dân tộc thời hội nhập quốc tế",
+  "ChatGPT – Vai trò của giới trẻ trong việc giữ gìn và phát huy bản sắc văn hoá Việt Nam",
+];
+const BAI6_IMAGES = Object.entries(bai6ImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], i) => ({ url: mod.default.url, caption: BAI6_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
