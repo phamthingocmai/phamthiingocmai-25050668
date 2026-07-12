@@ -6,6 +6,7 @@ import {
   Image as ImageIcon, PlayCircle, Rocket, BookOpen, Brain, Compass,
   IdCard, School, Phone, Calendar,
 } from "lucide-react";
+import studentPhoto from "@/assets/student-photo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -675,8 +676,8 @@ function About() {
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
           {/* Avatar card */}
           <div className="reveal rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
-            <div className="mx-auto grid h-40 w-40 place-items-center rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 text-primary">
-              <span className="text-5xl font-black">SV</span>
+            <div className="mx-auto h-40 w-40 overflow-hidden rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 ring-4 ring-primary/20">
+              <img src={studentPhoto.url} alt="Ảnh sinh viên Phạm Thị Ngọc Mai" className="h-full w-full object-cover" />
             </div>
             <div className="mt-6 text-center">
               <h3 className="text-2xl font-bold">Phạm Thị Ngọc Mai</h3>
