@@ -11,6 +11,7 @@ import bai1Report from "@/assets/bai1/report.docx.asset.json";
 import bai3Report from "@/assets/bai3/report.docx.asset.json";
 import bai4Report from "@/assets/bai4/report.docx.asset.json";
 import bai5Report from "@/assets/bai5/report.docx.asset.json";
+import bai6Report from "@/assets/bai6/report.docx.asset.json";
 
 // Load all Bài 1 evidence images (28 ảnh) — sorted by filename
 const bai1ImageModules = import.meta.glob<{ default: { url: string } }>(
@@ -106,6 +107,20 @@ const BAI5_CAPTIONS = [
 const BAI5_IMAGES = Object.entries(bai5ImageModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, mod], i) => ({ url: mod.default.url, caption: BAI5_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
+
+// Bài 6 – 3 ảnh minh chứng
+const bai6ImageModules = import.meta.glob<{ default: { url: string } }>(
+  "@/assets/bai6/step-*.{jpg,png}.asset.json",
+  { eager: true }
+);
+const BAI6_CAPTIONS = [
+  "ChatGPT – Đoạn kết luận về trách nhiệm của thế hệ trẻ trong giữ gìn văn hoá dân tộc",
+  "ChatGPT – Phân tích thách thức bảo tồn văn hoá dân tộc thời hội nhập quốc tế",
+  "ChatGPT – Vai trò của giới trẻ trong việc giữ gìn và phát huy bản sắc văn hoá Việt Nam",
+];
+const BAI6_IMAGES = Object.entries(bai6ImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], i) => ({ url: mod.default.url, caption: BAI6_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -519,6 +534,12 @@ const PROJECTS = [
       "Không dùng AI để gian lận thi cử hoặc làm thay toàn bộ bài tập.",
       "Chịu trách nhiệm cuối cùng đối với sản phẩm học tập của bản thân.",
     ],
+    evidenceImages: BAI6_IMAGES,
+    attachment: {
+      url: bai6Report.url,
+      name: "Bài 6 – Sử dụng AI có trách nhiệm trong học tập & nghiên cứu (.docx)",
+      size: "Báo cáo đầy đủ",
+    },
   },
 ];
 
