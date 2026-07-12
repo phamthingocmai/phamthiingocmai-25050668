@@ -111,6 +111,32 @@ const PROJECTS = [
       "Cần kiểm chứng thông tin trước khi sử dụng trong bài viết học thuật.",
       "Không nên phụ thuộc vào một nguồn duy nhất — luôn có phương án đối chiếu.",
     ],
+    evaluation: {
+      strengths: [
+        "Kết hợp linh hoạt 6 toán tử nâng cao trong cùng một truy vấn.",
+        "Ưu tiên nguồn .edu, tổ chức quốc tế và bài báo có peer-review.",
+        "Đối chiếu tối thiểu 3 nguồn trước khi đưa vào trích dẫn.",
+      ],
+      improvements: [
+        "Cần đọc kỹ Abstract và phương pháp nghiên cứu trước khi lưu nguồn.",
+        "Chưa khai thác Google Scholar Alerts để theo dõi nghiên cứu mới.",
+      ],
+      takeaways: [
+        "Toán tử site: kết hợp filetype: lọc nhiễu hiệu quả nhất.",
+        "Blog cá nhân chỉ dùng để gợi ý ý tưởng, không đưa vào trích dẫn.",
+      ],
+    },
+    integrity: {
+      aiUsage: [
+        "AI chỉ được dùng để gợi ý từ khoá đồng nghĩa và dịch thuật ngữ chuyên ngành.",
+        "Việc chọn nguồn và đánh giá độ tin cậy do tôi trực tiếp thực hiện.",
+      ],
+      commitments: [
+        "Tôi tự đọc và phân tích cả 5 nguồn trong bảng đánh giá.",
+        "Bảng so sánh nguồn do tôi viết, không sao chép nguyên văn từ AI.",
+        "Ghi rõ vai trò hỗ trợ của AI ở phần công cụ nếu có sử dụng.",
+      ],
+    },
     tags: ["Search Operators", "Source Evaluation", "Critical Thinking"],
     progress: 100,
     table: {
