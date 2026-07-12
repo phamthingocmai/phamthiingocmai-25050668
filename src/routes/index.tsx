@@ -109,6 +109,29 @@ const BAI5_IMAGES = Object.entries(bai5ImageModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, mod], i) => ({ url: mod.default.url, caption: BAI5_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
 
+// Bài 2 – 12 ảnh minh chứng (tìm kiếm & đánh giá nguồn thông tin học thuật)
+const bai2ImageModules = import.meta.glob<{ default: { url: string } }>(
+  "@/assets/bai2/step-*.{jpg,png}.asset.json",
+  { eager: true }
+);
+const BAI2_CAPTIONS = [
+  "Nguồn 1 – Kotler & Keller (2016): lý thuyết hành vi người tiêu dùng",
+  "Nguồn 2 – Ajzen (1991): Theory of Planned Behavior (TPB)",
+  "Nguồn 3 – Davis (1989): Technology Acceptance Model (TAM)",
+  "Nguồn 4 – Turban et al. (2018): TMĐT & khách hàng online",
+  "Nguồn 5 – Laudon & Traver (2021): hành vi người tiêu dùng trong TMĐT",
+  "Nguồn 6 – Gefen et al. (2003): Trust & TAM trong mua hàng online",
+  "Nguồn 7 – Chen & Dubinsky (2003): giá trị cảm nhận trong TMĐT",
+  "Nguồn 8 – Kim et al. (2010): Trust & Satisfaction trong TMĐT",
+  "Nguồn 9 – OECD (2022): Digital Economy Outlook",
+  "Nguồn 10 – Statista (2023): thống kê mua sắm trực tuyến toàn cầu",
+  "Nguồn 11 – Nielsen (2022): Global Consumer Behavior Report",
+  "Nguồn 12 – Think with Google (2023): xu hướng mua hàng online",
+];
+const BAI2_IMAGES = Object.entries(bai2ImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], i) => ({ url: mod.default.url, caption: BAI2_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
+
 // Bài 6 – 3 ảnh minh chứng
 const bai6ImageModules = import.meta.glob<{ default: { url: string } }>(
   "@/assets/bai6/step-*.{jpg,png}.asset.json",
