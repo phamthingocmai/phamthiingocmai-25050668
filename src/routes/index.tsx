@@ -4,9 +4,49 @@ import {
   FolderTree, Search, MessageSquareCode, Users, Sparkles, ShieldCheck,
   ArrowUp, ArrowRight, Mail, GraduationCap, Heart, Target, CheckCircle2,
   Image as ImageIcon, PlayCircle, Rocket, BookOpen, Brain, Compass,
-  IdCard, School, Phone, Calendar,
+  IdCard, School, Phone, Calendar, FileText, Download,
 } from "lucide-react";
 import studentPhoto from "@/assets/student-photo.jpg.asset.json";
+import bai1Report from "@/assets/bai1/report.docx.asset.json";
+
+// Load all Bài 1 evidence images (28 ảnh) — sorted by filename
+const bai1ImageModules = import.meta.glob<{ default: { url: string } }>(
+  "@/assets/bai1/step-*.jpg.asset.json",
+  { eager: true }
+);
+const BAI1_CAPTIONS = [
+  "Mở File Explorer (Windows + E)",
+  "Truy cập This PC",
+  "Mở ổ đĩa / thư mục Documents",
+  "Tạo thư mục mới",
+  "Đặt tên ThucHanh_PhamThiNgocMai",
+  "Vào thư mục vừa tạo",
+  "Tạo tệp GhiChu.txt",
+  "Xác nhận tệp GhiChu.txt",
+  "Đổi tên thành GhiChuQuanTrong.txt",
+  "Tạo thư mục con TaiLieu",
+  "Xác nhận thư mục TaiLieu",
+  "Copy tệp GhiChuQuanTrong.txt (Ctrl+C)",
+  "Paste bản sao vào TaiLieu (Ctrl+V)",
+  "Tạo tệp DiChuyen.txt",
+  "Xác nhận DiChuyen.txt",
+  "Cut tệp DiChuyen.txt (Ctrl+X)",
+  "Trạng thái tệp sau khi Cut",
+  "Paste DiChuyen.txt trong TaiLieu",
+  "Kết quả di chuyển tệp",
+  "Chuẩn bị xóa GhiChuQuanTrong.txt",
+  "Chọn Delete từ menu chuột phải",
+  "Tệp được chuyển vào Recycle Bin",
+  "Kiểm tra tệp trong Recycle Bin",
+  "Xóa vĩnh viễn (Shift + Delete)",
+  "Thư mục trống sau khi xóa vĩnh viễn",
+  "Mở Recycle Bin từ Desktop",
+  "Khôi phục tệp bằng lệnh Restore",
+  "Kết quả sau khi khôi phục tệp",
+];
+const BAI1_IMAGES = Object.entries(bai1ImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], i) => ({ url: mod.default.url, caption: BAI1_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -89,6 +129,12 @@ const PROJECTS = [
     },
     tags: ["File Management", "Windows", "Digital Hygiene"],
     progress: 100,
+    evidenceImages: BAI1_IMAGES,
+    attachment: {
+      url: bai1Report.url,
+      name: "Bài 1 – Thao tác tệp trên Windows (bản đầy đủ, .docx)",
+      size: "6.6 MB",
+    },
   },
   {
     id: 2,
@@ -1246,42 +1292,94 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
           </Block>
         )}
 
-        <Block title="🖼️ Ảnh minh chứng thực hành (10 ảnh)">
+        <Block
+          title={`🖼️ Ảnh minh chứng thực hành${
+            project.evidenceImages ? ` (${project.evidenceImages.length} ảnh)` : " (10 ảnh)"
+          }`}
+        >
           <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-secondary/5 p-5">
-            <div className="mb-4 flex items-center justify-between gap-3">
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2 text-sm font-semibold">
                 <ImageIcon className="h-4 w-4 text-primary" />
                 Bộ ảnh minh chứng cho Bài {project.id}
               </div>
-              <span className="text-xs text-muted-foreground">Bấm vào ảnh để phóng to nét</span>
-            </div>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
-              {Array.from({ length: 10 }).map((_, i) => (
-                <figure
-                  key={i}
-                  className="group overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1"
+              {project.attachment && (
+                <a
+                  href={project.attachment.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  className="group inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary/20"
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-                    <div className="absolute inset-0 grid place-items-center text-center">
-                      <div>
-                        <ImageIcon className="mx-auto h-8 w-8 text-primary/60" />
-                        <div className="mt-2 text-xs font-medium text-muted-foreground">
-                          Ảnh #{i + 1}
+                  <FileText className="h-3.5 w-3.5" />
+                  {project.attachment.name}
+                  <Download className="h-3.5 w-3.5 transition group-hover:translate-y-0.5" />
+                </a>
+              )}
+              {!project.attachment && (
+                <span className="text-xs text-muted-foreground">Bấm vào ảnh để phóng to nét</span>
+              )}
+            </div>
+
+            {project.evidenceImages ? (
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
+                {project.evidenceImages.map((img: { url: string; caption: string }, i: number) => (
+                  <a
+                    key={i}
+                    href={img.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
+                  >
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-background">
+                      <img
+                        src={img.url}
+                        alt={`Bài ${project.id} — ${img.caption}`}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition group-hover:scale-[1.03]"
+                      />
+                      <span className="absolute left-2 top-2 rounded-full bg-background/85 px-2 py-0.5 text-[10px] font-bold text-primary shadow-sm backdrop-blur">
+                        #{String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <figcaption className="border-t border-border bg-card px-3 py-2.5 text-xs font-medium text-foreground/80">
+                      {i + 1}. {img.caption}
+                    </figcaption>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
+                  {Array.from({ length: 10 }).map((_, i) => (
+                    <figure
+                      key={i}
+                      className="group overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1"
+                    >
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+                        <div className="absolute inset-0 grid place-items-center text-center">
+                          <div>
+                            <ImageIcon className="mx-auto h-8 w-8 text-primary/60" />
+                            <div className="mt-2 text-xs font-medium text-muted-foreground">
+                              Ảnh #{i + 1}
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <figcaption className="border-t border-border bg-card px-3 py-2.5 text-xs font-medium text-foreground/80">
-                    {i + 1}. Minh chứng thực hành — Bài {project.id}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-            <p className="mt-4 text-xs text-muted-foreground">
-              * Chèn ảnh chụp màn hình / sản phẩm thực hành vào từng ô. Kích thước khuyến nghị: 1200×900px, định dạng PNG hoặc JPG.
-            </p>
+                      <figcaption className="border-t border-border bg-card px-3 py-2.5 text-xs font-medium text-foreground/80">
+                        {i + 1}. Minh chứng thực hành — Bài {project.id}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+                <p className="mt-4 text-xs text-muted-foreground">
+                  * Chèn ảnh chụp màn hình / sản phẩm thực hành vào từng ô. Kích thước khuyến nghị: 1200×900px, định dạng PNG hoặc JPG.
+                </p>
+              </>
+            )}
           </div>
         </Block>
+
 
 
 
