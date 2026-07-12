@@ -302,6 +302,12 @@ const PROJECTS = [
         ["12", "Google", "2023", "Think with Google", "Dữ liệu", "Xu hướng mua hàng online (Consumer Insights)", "Khá cao"],
       ],
     },
+    evidenceImages: BAI2_IMAGES,
+    attachment: {
+      url: bai2Report.url,
+      name: "Bài 2 – Ảnh chụp 12 nguồn tham khảo (.zip)",
+      size: "12 ảnh minh chứng",
+    },
   },
   {
     id: 3,
