@@ -1307,7 +1307,62 @@ function Conclusion() {
             </ul>
           </ReflectCard>
         </div>
-      </div>
+
+        <div className="reveal mt-10 rounded-3xl border border-primary/25 bg-card p-6 sm:p-8 shadow-[var(--shadow-soft)]">
+          <div className="flex items-center gap-3">
+            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+              <ShieldCheck className="h-5 w-5" />
+            </span>
+            <div>
+              <h4 className="text-xl font-bold">Cam kết liêm chính học thuật</h4>
+              <p className="text-sm text-muted-foreground">Cam kết chung cho toàn bộ Portfolio môn Nhập môn Công nghệ số & AI.</p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <div>
+              <h5 className="text-sm font-bold text-primary">Tôi cam kết:</h5>
+              <ul className="mt-3 space-y-2 text-sm">
+                {[
+                  "Toàn bộ nội dung Portfolio do tôi tự thực hiện dưới sự hướng dẫn của giảng viên.",
+                  "Mọi ảnh chụp minh chứng là dữ liệu thật từ quá trình học tập của bản thân.",
+                  "Nguồn tham khảo được trích dẫn rõ ràng, không sao chép nguyên văn khi chưa xin phép.",
+                  "Ghi rõ vai trò của AI ở những bài có sử dụng AI hỗ trợ (Bài 3, Bài 5).",
+                  "Không dùng AI để làm thay bài tập hoặc gian lận học thuật dưới mọi hình thức.",
+                ].map((t, i) => (
+                  <li key={i} className="flex gap-2">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-sm font-bold text-secondary">Vai trò của AI trong Portfolio này:</h5>
+              <ul className="mt-3 space-y-2 text-sm">
+                {[
+                  "Bài 1, 2, 4, 6: KHÔNG sử dụng AI sinh nội dung — tôi tự thực hiện và tự viết.",
+                  "Bài 3: AI là đối tượng nghiên cứu — dùng để so sánh prompt, không để làm bài thay.",
+                  "Bài 5: AI hỗ trợ nháp kịch bản, hình minh hoạ, giọng đọc — tôi biên tập cuối cùng.",
+                  "Tôi chịu trách nhiệm hoàn toàn với nội dung, dù có hay không có AI hỗ trợ.",
+                ].map((t, i) => (
+                  <li key={i} className="flex gap-2">
+                    <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-col gap-3 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 p-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm">
+              <span className="font-bold">Ký xác nhận:</span> Trần / Nguyễn... — MSV 25050668 — Lớp QH-2025-E KTPT7
+            </p>
+            <p className="text-xs text-muted-foreground">Hà Nội, năm học 2025 – 2026</p>
+          </div>
+        </div>
+
     </section>
   );
 }
