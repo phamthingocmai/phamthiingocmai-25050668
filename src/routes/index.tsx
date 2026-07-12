@@ -49,6 +49,26 @@ const BAI1_IMAGES = Object.entries(bai1ImageModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, mod], i) => ({ url: mod.default.url, caption: BAI1_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
 
+// Bài 3 – 9 ảnh minh chứng
+const bai3ImageModules = import.meta.glob<{ default: { url: string } }>(
+  "@/assets/bai3/step-*.{jpg,png}.asset.json",
+  { eager: true }
+);
+const BAI3_CAPTIONS = [
+  "Prompt cơ bản – Tóm tắt đoạn văn 'Mùi cỏ cháy'",
+  "Prompt cải tiến – Tóm tắt 5–7 câu có luận điểm",
+  "Prompt nâng cao – Tóm tắt cấu trúc 3 ý chính + kết luận",
+  "Prompt cơ bản – Giải thích khái niệm 'Học sâu' (Deep Learning)",
+  "Prompt cải tiến – Giải thích 'Học sâu' kèm ví dụ minh họa",
+  "Prompt nâng cao – Giải thích + so sánh Học sâu vs Học nông",
+  "Prompt cơ bản – Tạo 5 câu hỏi về AI trong giáo dục",
+  "Prompt cải tiến – 10 câu hỏi có phân hóa độ khó",
+  "Prompt nâng cao – Bộ câu hỏi 4 mức Bloom kèm đáp án",
+];
+const BAI3_IMAGES = Object.entries(bai3ImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], i) => ({ url: mod.default.url, caption: BAI3_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
