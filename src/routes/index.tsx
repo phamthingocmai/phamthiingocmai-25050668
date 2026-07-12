@@ -534,6 +534,12 @@ const PROJECTS = [
       "Không dùng AI để gian lận thi cử hoặc làm thay toàn bộ bài tập.",
       "Chịu trách nhiệm cuối cùng đối với sản phẩm học tập của bản thân.",
     ],
+    evidenceImages: BAI6_IMAGES,
+    attachment: {
+      url: bai6Report.url,
+      name: "Bài 6 – Sử dụng AI có trách nhiệm trong học tập & nghiên cứu (.docx)",
+      size: "Báo cáo đầy đủ",
+    },
   },
 ];
 
