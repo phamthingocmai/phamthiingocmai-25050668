@@ -9,6 +9,7 @@ import {
 import studentPhoto from "@/assets/student-photo.jpg.asset.json";
 import bai1Report from "@/assets/bai1/report.docx.asset.json";
 import bai3Report from "@/assets/bai3/report.docx.asset.json";
+import bai4Report from "@/assets/bai4/report.docx.asset.json";
 
 // Load all Bài 1 evidence images (28 ảnh) — sorted by filename
 const bai1ImageModules = import.meta.glob<{ default: { url: string } }>(
@@ -68,6 +69,25 @@ const BAI3_CAPTIONS = [
 const BAI3_IMAGES = Object.entries(bai3ImageModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, mod], i) => ({ url: mod.default.url, caption: BAI3_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
+
+// Bài 4 – 8 ảnh minh chứng
+const bai4ImageModules = import.meta.glob<{ default: { url: string } }>(
+  "@/assets/bai4/step-*.{jpg,png}.asset.json",
+  { eager: true }
+);
+const BAI4_CAPTIONS = [
+  "Bảng Trello – phân công nhiệm vụ cho nhóm (To-do / Doing / Done)",
+  "Trello – theo dõi tiến độ các thẻ công việc",
+  "Google Docs – tài liệu nhóm chung với phân công chi tiết",
+  "Google Docs – nội dung ứng dụng AI trong Khoa học sức khoẻ",
+  "Google Docs – comment & chỉnh sửa trực tiếp phần thành viên",
+  "Google Meet – họp nhóm trực tuyến, chia sẻ tài liệu",
+  "Google Drive – thư mục CNS (Nhóm 7) tổ chức khoa học",
+  "Google Drive – thư mục 'Tiến độ hoàn thành' của các thành viên",
+];
+const BAI4_IMAGES = Object.entries(bai4ImageModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], i) => ({ url: mod.default.url, caption: BAI4_CAPTIONS[i] ?? `Ảnh ${i + 1}` }));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -357,6 +377,12 @@ const PROJECTS = [
         ["Thành viên 4", "Thiết kế slide & minh hoạ", "Ngày 6", "≥ 5 lần/tuần"],
         ["Thành viên 5", "Kiểm tra chính tả, đối chiếu tài liệu tham khảo, nộp bài", "Ngày 7", "≥ 5 lần/tuần"],
       ],
+    },
+    evidenceImages: BAI4_IMAGES,
+    attachment: {
+      url: bai4Report.url,
+      name: "Bài 4 – Trải nghiệm hợp tác trực tuyến trong dự án nhóm (.docx)",
+      size: "Báo cáo đầy đủ",
     },
   },
   {
