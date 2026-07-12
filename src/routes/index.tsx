@@ -453,6 +453,12 @@ const PROJECTS = [
     },
     tags: ["Generative AI", "Infographic", "Human-in-the-loop", "Content Creation"],
     progress: 100,
+    evidenceImages: BAI5_IMAGES,
+    attachment: {
+      url: bai5Report.url,
+      name: "Bài 5 – Sử dụng AI tạo sinh hỗ trợ sáng tạo nội dung số (.docx)",
+      size: "Báo cáo đầy đủ",
+    },
   },
   {
     id: 6,
