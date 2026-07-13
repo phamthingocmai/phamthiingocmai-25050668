@@ -1236,15 +1236,15 @@ function Overview() {
               })}
 
               {/* Center hub */}
-              <circle cx={cx} cy={cy} r={rInner - 8} fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
-              <circle cx={cx} cy={cy} r={rInner - 22} fill="none" stroke="hsl(var(--primary))" strokeOpacity="0.35" strokeDasharray="4 6" />
-              <text x={cx} y={cy - 18} textAnchor="middle" fontSize="13" fontWeight="800" fill="hsl(var(--muted-foreground))" style={{ letterSpacing: "0.2em" }}>
+              <circle cx={cx} cy={cy} r={rInner - 8} style={{ fill: "var(--card)", stroke: "var(--border)" }} strokeWidth="2" />
+              <circle cx={cx} cy={cy} r={rInner - 22} fill="none" style={{ stroke: "var(--primary)" }} strokeOpacity="0.35" strokeDasharray="4 6" />
+              <text x={cx} y={cy - 18} textAnchor="middle" fontSize="13" fontWeight="800" style={{ fill: "var(--muted-foreground)", letterSpacing: "0.2em" }}>
                 HÀNH TRÌNH
               </text>
-              <text x={cx} y={cy + 14} textAnchor="middle" fontSize="42" fontWeight="900" fill="hsl(var(--primary))" style={{ fontFamily: "'DM Serif Display', serif" }}>
+              <text x={cx} y={cy + 14} textAnchor="middle" fontSize="42" fontWeight="900" style={{ fill: "var(--primary)", fontFamily: "'DM Serif Display', serif" }}>
                 6
               </text>
-              <text x={cx} y={cy + 46} textAnchor="middle" fontSize="14" fontWeight="700" fill="hsl(var(--foreground))">
+              <text x={cx} y={cy + 46} textAnchor="middle" fontSize="14" fontWeight="700" style={{ fill: "var(--foreground)" }}>
                 nhiệm vụ học tập
               </text>
             </svg>
