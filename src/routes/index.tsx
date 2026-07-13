@@ -981,7 +981,7 @@ function About() {
                 loading="eager"
                 decoding="async"
                 className="h-full w-full object-cover"
-                style={{ objectPosition: "center 28%" }}
+                style={{ objectPosition: "center 18%" }}
               />
             </div>
             <div className="mt-6 text-center">
