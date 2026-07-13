@@ -1816,125 +1816,227 @@ const SKILL_STYLES = [
 ];
 
 function SkillsSection() {
+  // Radar chart geometry
+  const size = 560;
+  const cx = size / 2;
+  const cy = size / 2;
+  const rMax = 210;
+  const n = SKILLS.length;
+  const angleFor = (i: number) => -Math.PI / 2 + (i * 2 * Math.PI) / n;
+  const pointAt = (i: number, pct: number) => {
+    const a = angleFor(i);
+    const r = (pct / 100) * rMax;
+    return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+  };
+  const axisEnd = (i: number) => pointAt(i, 100);
+
+  const polygonPoints = SKILLS.map((s, i) => {
+    const p = pointAt(i, s.level);
+    return `${p.x},${p.y}`;
+  }).join(" ");
+
+  const rings = [20, 40, 60, 80, 100];
+  const avg = Math.round(SKILLS.reduce((a, s) => a + s.level, 0) / SKILLS.length);
+
   return (
     <section id="skills" className="relative py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionTitle
           kicker="Năng lực"
           title="Bảng tổng hợp kỹ năng đạt được"
-          subtitle="Kỹ năng số cốt lõi được rèn luyện qua 6 bài tập."
+          subtitle="Kỹ năng số cốt lõi được rèn luyện qua 6 bài tập — trình bày dưới dạng biểu đồ mạng nhện."
         />
 
-        <div className="reveal mt-12 rounded-3xl border border-border bg-card p-6 sm:p-10 shadow-[var(--shadow-soft)]">
-          {/* Chart area */}
-          <div className="relative">
-            {/* Y-axis label */}
-            <div className="mb-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-xs">
-              Mức độ đạt được (%)
-            </div>
-
-            <div className="flex gap-2 sm:gap-3">
-              {/* Y axis */}
-              <div className="relative flex w-8 shrink-0 flex-col justify-between pb-2 pt-4 text-[10px] font-semibold text-muted-foreground sm:text-xs" style={{ height: 420 }}>
-                {[100, 80, 60, 40, 20, 0].map((v) => (
-                  <div key={v} className="flex items-center gap-1">
-                    <span>{v}</span>
-                    <span className="h-px w-1.5 bg-border" />
+        <div className="reveal mt-12 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
+          <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_360px]">
+            {/* Radar chart */}
+            <div className="relative border-b border-border bg-gradient-to-br from-background via-card to-background p-4 sm:p-8 lg:border-b-0 lg:border-r">
+              <div className="mb-4 flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Radar</div>
+                  <div className="text-lg font-black" style={{ fontFamily: "'DM Serif Display', serif" }}>
+                    Sơ đồ mạng nhện 8 kỹ năng
                   </div>
-                ))}
+                </div>
+                <div className="rounded-2xl border border-primary/30 bg-primary/10 px-3 py-1.5 text-right">
+                  <div className="text-[9px] font-bold uppercase tracking-wider text-primary/70">TB</div>
+                  <div className="text-xl font-black text-primary" style={{ fontFamily: "'DM Serif Display', serif" }}>
+                    {avg}%
+                  </div>
+                </div>
               </div>
 
-              {/* Bars */}
-              <div className="relative flex-1">
-                {/* gridlines */}
-                <div className="pointer-events-none absolute inset-0 pt-4 pb-2">
-                  {[0, 1, 2, 3, 4, 5].map((i) => (
-                    <div
-                      key={i}
-                      className="absolute left-0 right-0 border-t border-dashed border-border/60"
-                      style={{ top: `${(i / 5) * 100}%` }}
-                    />
-                  ))}
-                </div>
+              <div className="mx-auto aspect-square w-full max-w-[560px]">
+                <svg viewBox={`0 0 ${size} ${size}`} className="h-full w-full">
+                  <defs>
+                    <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.35" />
+                      <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.08" />
+                    </radialGradient>
+                    <linearGradient id="radarStroke" x1="0" y1="0" x2="1" y2="1">
+                      {SKILL_STYLES.map((s, i) => (
+                        <stop key={i} offset={`${(i / (SKILL_STYLES.length - 1)) * 100}%`} stopColor={s.color} />
+                      ))}
+                    </linearGradient>
+                  </defs>
 
-                <div className="relative grid grid-cols-4 gap-2 pt-4 sm:grid-cols-8 sm:gap-3" style={{ height: 420 }}>
-                  {SKILLS.map((s, i) => {
-                    const style = SKILL_STYLES[i];
+                  {/* Rings */}
+                  {rings.map((pct) => {
+                    const pts = SKILLS.map((_, i) => {
+                      const p = pointAt(i, pct);
+                      return `${p.x},${p.y}`;
+                    }).join(" ");
                     return (
-                      <div key={s.name} className="relative flex flex-col items-center justify-end">
-                        {/* percentage bubble */}
-                        <div
-                          className="absolute z-10 rounded-lg bg-card px-2 py-0.5 text-xs font-black shadow-[var(--shadow-soft)] sm:text-sm"
-                          style={{
-                            color: style.dark,
-                            bottom: `calc(${s.level}% + 8px)`,
-                          }}
-                        >
-                          {s.level}%
-                        </div>
-
-                        {/* 3D bar */}
-                        <div
-                          className="relative w-full overflow-hidden rounded-t-md transition-transform duration-500 hover:-translate-y-1"
-                          style={{
-                            height: `${s.level}%`,
-                            background: `linear-gradient(180deg, ${style.light} 0%, ${style.color} 40%, ${style.dark} 100%)`,
-                            boxShadow: `inset -6px 0 0 0 ${style.dark}55, inset 6px 0 0 0 ${style.light}66, 0 8px 20px -6px ${style.color}80`,
-                          }}
-                        >
-                          {/* top face highlight */}
-                          <div
-                            className="absolute left-0 right-0 top-0 h-2"
-                            style={{
-                              background: `linear-gradient(90deg, ${style.light}, ${style.color})`,
-                              boxShadow: `inset 0 1px 0 rgba(255,255,255,0.5)`,
-                            }}
-                          />
-                          {/* number */}
-                          <div className="absolute inset-x-0 bottom-2 text-center text-lg font-black text-white/90 sm:text-2xl">
-                            {String(i + 1).padStart(2, "0")}
-                          </div>
-                        </div>
-                      </div>
+                      <polygon
+                        key={pct}
+                        points={pts}
+                        fill="none"
+                        stroke="hsl(var(--border))"
+                        strokeOpacity={pct === 100 ? 0.6 : 0.35}
+                        strokeDasharray={pct === 100 ? "0" : "3 4"}
+                      />
                     );
                   })}
-                </div>
-                {/* base line */}
-                <div className="h-1.5 rounded-full bg-gradient-to-r from-border via-muted-foreground/30 to-border" />
+
+                  {/* Ring labels */}
+                  {rings.map((pct) => (
+                    <text
+                      key={`lbl-${pct}`}
+                      x={cx + 4}
+                      y={cy - (pct / 100) * rMax - 2}
+                      className="fill-muted-foreground"
+                      fontSize="10"
+                      fontWeight="700"
+                    >
+                      {pct}
+                    </text>
+                  ))}
+
+                  {/* Axes */}
+                  {SKILLS.map((_, i) => {
+                    const p = axisEnd(i);
+                    return (
+                      <line
+                        key={i}
+                        x1={cx}
+                        y1={cy}
+                        x2={p.x}
+                        y2={p.y}
+                        stroke="hsl(var(--border))"
+                        strokeOpacity="0.5"
+                      />
+                    );
+                  })}
+
+                  {/* Data polygon */}
+                  <polygon
+                    points={polygonPoints}
+                    fill="url(#radarFill)"
+                    stroke="url(#radarStroke)"
+                    strokeWidth="2.5"
+                    strokeLinejoin="round"
+                  />
+
+                  {/* Value dots + % labels */}
+                  {SKILLS.map((s, i) => {
+                    const style = SKILL_STYLES[i];
+                    const p = pointAt(i, s.level);
+                    const a = angleFor(i);
+                    const lx = cx + (rMax + 34) * Math.cos(a);
+                    const ly = cy + (rMax + 34) * Math.sin(a);
+                    return (
+                      <g key={s.name}>
+                        <circle cx={p.x} cy={p.y} r="7" fill={style.color} stroke="hsl(var(--card))" strokeWidth="2.5" />
+                        <circle cx={p.x} cy={p.y} r="3" fill="white" opacity="0.85" />
+                        {/* index badge at axis end */}
+                        <circle cx={cx + (rMax + 18) * Math.cos(a)} cy={cy + (rMax + 18) * Math.sin(a)} r="13" fill={style.color} />
+                        <text
+                          x={cx + (rMax + 18) * Math.cos(a)}
+                          y={cy + (rMax + 18) * Math.sin(a) + 4}
+                          textAnchor="middle"
+                          fill="white"
+                          fontSize="12"
+                          fontWeight="900"
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </text>
+                        {/* % label */}
+                        <text
+                          x={lx}
+                          y={ly + 4}
+                          textAnchor="middle"
+                          fill={style.dark}
+                          fontSize="13"
+                          fontWeight="900"
+                          style={{ fontFamily: "'DM Serif Display', serif" }}
+                        >
+                          {s.level}%
+                        </text>
+                      </g>
+                    );
+                  })}
+                </svg>
               </div>
             </div>
 
-            {/* Labels row */}
-            <div className="mt-5 grid grid-cols-4 gap-2 pl-10 sm:grid-cols-8 sm:gap-3">
-              {SKILLS.map((s, i) => {
-                const style = SKILL_STYLES[i];
-                const Icon = style.Icon;
-                return (
-                  <div key={s.name} className="flex flex-col items-center text-center">
-                    <div
-                      className="grid h-11 w-11 place-items-center rounded-full border-2 bg-card shadow-sm"
-                      style={{ borderColor: style.color, color: style.color }}
+            {/* Legend list */}
+            <div className="flex flex-col bg-muted/30 p-4 sm:p-6">
+              <div className="mb-4">
+                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Chú giải</div>
+                <div className="text-lg font-black" style={{ fontFamily: "'DM Serif Display', serif" }}>
+                  Chi tiết 8 kỹ năng
+                </div>
+              </div>
+              <ul className="space-y-3">
+                {SKILLS.map((s, i) => {
+                  const style = SKILL_STYLES[i];
+                  const Icon = style.Icon;
+                  return (
+                    <li
+                      key={s.name}
+                      className="group grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-border/60 bg-card p-3 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-soft)]"
                     >
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <div
-                      className="mt-2 text-[11px] font-bold leading-tight sm:text-xs"
-                      style={{ color: style.dark }}
-                    >
-                      {s.name}
-                    </div>
-                    <div className="mx-auto mt-1 h-0.5 w-6 rounded-full" style={{ background: style.color }} />
-                    <p className="mt-2 text-[10px] leading-snug text-muted-foreground sm:text-xs">
-                      {s.use}
-                    </p>
-                  </div>
-                );
-              })}
+                      <div
+                        className="relative grid h-10 w-10 shrink-0 place-items-center rounded-lg text-white shadow-sm"
+                        style={{ background: `linear-gradient(135deg, ${style.light}, ${style.color})` }}
+                      >
+                        <Icon className="h-5 w-5" />
+                        <span
+                          className="absolute -bottom-1 -right-1 grid h-4 w-4 place-items-center rounded-full bg-card text-[9px] font-black"
+                          style={{ color: style.dark, border: `1.5px solid ${style.color}` }}
+                        >
+                          {i + 1}
+                        </span>
+                      </div>
+                      <div className="min-w-0">
+                        <div className="truncate text-[13px] font-bold" style={{ color: style.dark, fontFamily: "'Fira Sans', sans-serif" }}>
+                          {s.name}
+                        </div>
+                        <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                          <div
+                            className="h-full rounded-full transition-[width] duration-700"
+                            style={{
+                              width: `${s.level}%`,
+                              background: `linear-gradient(90deg, ${style.light}, ${style.color}, ${style.dark})`,
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div
+                        className="shrink-0 text-lg font-black tabular-nums"
+                        style={{ color: style.dark, fontFamily: "'DM Serif Display', serif" }}
+                      >
+                        {s.level}%
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
 
           {/* Footer badge */}
-          <div className="mt-8 flex justify-center">
+          <div className="flex justify-center border-t border-border bg-gradient-to-r from-primary/5 via-transparent to-primary/5 p-5">
             <div className="flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary">
               <Sparkles className="h-4 w-4" />
               Tiếp tục phát huy — Nâng cao kỹ năng — Làm chủ tương lai số!
