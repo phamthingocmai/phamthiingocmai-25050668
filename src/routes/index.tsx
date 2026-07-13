@@ -438,17 +438,6 @@ const PROJECTS = [
     },
     tags: ["Collaboration", "Leadership", "Project Management", "Digital Teamwork"],
     progress: 100,
-    team: {
-      caption: "Bảng phân công nhóm (Chủ đề: AI trong Khoa học sức khoẻ)",
-      headers: ["Thành viên", "Vai trò / Nhiệm vụ", "Deadline", "Yêu cầu tương tác"],
-      rows: [
-        ["Phạm Thị Ngọc Mai", "Nhóm trưởng – lên ý tưởng, phân công, tổng hợp & viết báo cáo", "Nháp Ngày 2 – Hoàn thiện Ngày 6", "≥ 10 lần/tuần, cập nhật Trello ≥ 3 lần/tuần"],
-        ["Nguyễn Quang Minh", "Hỗ trợ ý tưởng, trình bày ứng dụng AI thực tế, chỉnh sửa bài", "Nháp Ngày 3 – Hoàn thiện Ngày 5", "≥ 5 lần/tuần, cập nhật tiến độ ≥ 3 lần"],
-        ["Thành viên 3", "Nghiên cứu ứng dụng AI trong chẩn đoán hình ảnh y khoa", "Ngày 5", "≥ 5 lần/tuần"],
-        ["Thành viên 4", "Thiết kế slide & minh hoạ", "Ngày 6", "≥ 5 lần/tuần"],
-        ["Thành viên 5", "Kiểm tra chính tả, đối chiếu tài liệu tham khảo, nộp bài", "Ngày 7", "≥ 5 lần/tuần"],
-      ],
-    },
     evidenceImages: BAI4_IMAGES,
     attachment: {
       url: bai4Report.url,
