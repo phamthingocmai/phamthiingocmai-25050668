@@ -593,14 +593,14 @@ const EVIDENCE = [
 ];
 
 const SKILLS = [
-  { name: "Quản lý tệp và dữ liệu số", level: 92, use: "Tổ chức tài liệu học tập, dự án cá nhân." },
-  { name: "Tìm kiếm thông tin học thuật", level: 90, use: "Nghiên cứu, viết tiểu luận, làm khoá luận." },
-  { name: "Đánh giá độ tin cậy nguồn", level: 88, use: "Phân biệt thông tin đúng/sai, phản biện." },
-  { name: "Viết Prompt hiệu quả", level: 90, use: "Học tập, sáng tạo nội dung, giải quyết vấn đề." },
-  { name: "Làm việc nhóm trực tuyến", level: 87, use: "Quản lý dự án, phối hợp đa thành viên." },
-  { name: "Sáng tạo nội dung số bằng AI", level: 85, use: "Sản xuất video, infographic, thuyết trình." },
-  { name: "Sử dụng AI có trách nhiệm", level: 93, use: "Bảo đảm liêm chính học thuật, an toàn dữ liệu." },
-  { name: "Tự đánh giá & cải thiện bản thân", level: 89, use: "Lập kế hoạch học tập, phát triển bền vững." },
+  { name: "Quản lý tệp và dữ liệu số", level: 95, use: "Tổ chức tài liệu học tập, dự án cá nhân." },
+  { name: "Tìm kiếm thông tin học thuật", level: 92, use: "Nghiên cứu, viết tiểu luận, làm khoá luận." },
+  { name: "Đánh giá độ tin cậy nguồn", level: 94, use: "Phân biệt thông tin đúng/sai, phản biện." },
+  { name: "Viết Prompt hiệu quả", level: 97, use: "Học tập, sáng tạo nội dung, giải quyết vấn đề." },
+  { name: "Làm việc nhóm trực tuyến", level: 91, use: "Quản lý dự án, phối hợp đa thành viên." },
+  { name: "Sáng tạo nội dung số bằng AI", level: 93, use: "Sản xuất video, infographic, thuyết trình." },
+  { name: "Sử dụng AI có trách nhiệm", level: 98, use: "Bảo đảm liêm chính học thuật, an toàn dữ liệu." },
+  { name: "Tự đánh giá & cải thiện bản thân", level: 96, use: "Lập kế hoạch học tập, phát triển bền vững." },
 ];
 
 // ============ HELPERS ============
