@@ -780,7 +780,7 @@ function Hero() {
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.24em] text-muted-foreground">
             <span className="font-mono text-primary">01</span>
             <span className="h-px w-10 bg-border" />
-            <span>Portfolio · Học kỳ I</span>
+            <span>PORTFOLIO · HỌC KỲ II</span>
           </div>
 
           <h1
