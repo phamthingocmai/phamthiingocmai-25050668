@@ -593,14 +593,14 @@ const EVIDENCE = [
 ];
 
 const SKILLS = [
-  { name: "Quản lý tệp và dữ liệu số", level: 92, use: "Tổ chức tài liệu học tập, dự án cá nhân." },
-  { name: "Tìm kiếm thông tin học thuật", level: 90, use: "Nghiên cứu, viết tiểu luận, làm khoá luận." },
-  { name: "Đánh giá độ tin cậy nguồn", level: 88, use: "Phân biệt thông tin đúng/sai, phản biện." },
-  { name: "Viết Prompt hiệu quả", level: 90, use: "Học tập, sáng tạo nội dung, giải quyết vấn đề." },
-  { name: "Làm việc nhóm trực tuyến", level: 87, use: "Quản lý dự án, phối hợp đa thành viên." },
-  { name: "Sáng tạo nội dung số bằng AI", level: 85, use: "Sản xuất video, infographic, thuyết trình." },
-  { name: "Sử dụng AI có trách nhiệm", level: 93, use: "Bảo đảm liêm chính học thuật, an toàn dữ liệu." },
-  { name: "Tự đánh giá & cải thiện bản thân", level: 89, use: "Lập kế hoạch học tập, phát triển bền vững." },
+  { name: "Quản lý tệp và dữ liệu số", level: 95, use: "Tổ chức tài liệu học tập, dự án cá nhân." },
+  { name: "Tìm kiếm thông tin học thuật", level: 92, use: "Nghiên cứu, viết tiểu luận, làm khoá luận." },
+  { name: "Đánh giá độ tin cậy nguồn", level: 94, use: "Phân biệt thông tin đúng/sai, phản biện." },
+  { name: "Viết Prompt hiệu quả", level: 97, use: "Học tập, sáng tạo nội dung, giải quyết vấn đề." },
+  { name: "Làm việc nhóm trực tuyến", level: 91, use: "Quản lý dự án, phối hợp đa thành viên." },
+  { name: "Sáng tạo nội dung số bằng AI", level: 93, use: "Sản xuất video, infographic, thuyết trình." },
+  { name: "Sử dụng AI có trách nhiệm", level: 98, use: "Bảo đảm liêm chính học thuật, an toàn dữ liệu." },
+  { name: "Tự đánh giá & cải thiện bản thân", level: 96, use: "Lập kế hoạch học tập, phát triển bền vững." },
 ];
 
 // ============ HELPERS ============
@@ -1927,10 +1927,10 @@ const SKILL_STYLES = [
 
 function SkillsSection() {
   // Radar chart geometry
-  const size = 560;
+  const size = 640;
   const cx = size / 2;
   const cy = size / 2;
-  const rMax = 210;
+  const rMax = 225;
   const n = SKILLS.length;
   const angleFor = (i: number) => -Math.PI / 2 + (i * 2 * Math.PI) / n;
   const pointAt = (i: number, pct: number) => {
@@ -2052,17 +2052,19 @@ function SkillsSection() {
                     const style = SKILL_STYLES[i];
                     const p = pointAt(i, s.level);
                     const a = angleFor(i);
-                    const lx = cx + (rMax + 34) * Math.cos(a);
-                    const ly = cy + (rMax + 34) * Math.sin(a);
+                    const lx = cx + (rMax + 52) * Math.cos(a);
+                    const ly = cy + (rMax + 52) * Math.sin(a);
+                    const bx = cx + (rMax + 18) * Math.cos(a);
+                    const by = cy + (rMax + 18) * Math.sin(a);
                     return (
                       <g key={s.name}>
-                        <circle cx={p.x} cy={p.y} r="7" fill={style.color} stroke="hsl(var(--card))" strokeWidth="2.5" />
+                        <circle cx={p.x} cy={p.y} r="7" fill={style.color} stroke="#ffffff" strokeWidth="2.5" />
                         <circle cx={p.x} cy={p.y} r="3" fill="white" opacity="0.85" />
                         {/* index badge at axis end */}
-                        <circle cx={cx + (rMax + 18) * Math.cos(a)} cy={cy + (rMax + 18) * Math.sin(a)} r="13" fill={style.color} />
+                        <circle cx={bx} cy={by} r="13" fill={style.color} />
                         <text
-                          x={cx + (rMax + 18) * Math.cos(a)}
-                          y={cy + (rMax + 18) * Math.sin(a) + 4}
+                          x={bx}
+                          y={by + 4}
                           textAnchor="middle"
                           fill="white"
                           fontSize="12"
@@ -2070,13 +2072,23 @@ function SkillsSection() {
                         >
                           {String(i + 1).padStart(2, "0")}
                         </text>
-                        {/* % label */}
+                        {/* % label — outside the badge with a soft chip so it stays legible */}
+                        <rect
+                          x={lx - 26}
+                          y={ly - 12}
+                          width="52"
+                          height="22"
+                          rx="11"
+                          fill="white"
+                          stroke={style.color}
+                          strokeWidth="1.5"
+                        />
                         <text
                           x={lx}
                           y={ly + 4}
                           textAnchor="middle"
                           fill={style.dark}
-                          fontSize="13"
+                          fontSize="14"
                           fontWeight="900"
                           style={{ fontFamily: "'DM Serif Display', serif" }}
                         >
