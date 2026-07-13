@@ -23,7 +23,6 @@ function walk(dir) {
     const p = join(dir, name);
     const s = statSync(p);
     if (s.isDirectory()) {
-      if (name === "assets" && dir === DIST) continue; // bỏ qua thư mục ảnh
       walk(p);
     } else if (/\.(html|js|css)$/.test(name)) {
       let text = readFileSync(p, "utf8");
