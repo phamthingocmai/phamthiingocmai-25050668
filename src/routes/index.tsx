@@ -974,8 +974,15 @@ function About() {
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
           {/* Avatar card */}
           <div className="reveal rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
-            <div className="mx-auto h-40 w-40 overflow-hidden rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 ring-4 ring-primary/20">
-              <img src={studentPhoto.url} alt="Ảnh sinh viên Phạm Thị Ngọc Mai" className="h-full w-full object-cover" style={{ objectPosition: "center 60%" }} />
+            <div className="mx-auto h-44 w-44 overflow-hidden rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 ring-4 ring-primary/20">
+              <img
+                src={studentPhoto.url}
+                alt="Ảnh sinh viên Phạm Thị Ngọc Mai"
+                loading="eager"
+                decoding="async"
+                className="h-full w-full object-cover"
+                style={{ objectPosition: "center 28%" }}
+              />
             </div>
             <div className="mt-6 text-center">
               <h3 className="text-2xl font-bold">Phạm Thị Ngọc Mai</h3>
