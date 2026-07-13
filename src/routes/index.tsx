@@ -1146,7 +1146,7 @@ function Overview() {
   const cy = size / 2;
   const rOuter = 340;
   const rInner = 130;
-  const rIcon = 245;
+  
   const gap = 1.6; // deg gap between slices
   const n = TASKS.length;
   const step = 360 / n;
