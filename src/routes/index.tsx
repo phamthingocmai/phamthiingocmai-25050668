@@ -599,7 +599,7 @@ function scrollToId(id: string) {
 }
 
 // ============ MAIN ============
-function PortfolioPage() {
+export function PortfolioPage() {
   const [showTop, setShowTop] = useState(false);
   const [activeProject, setActiveProject] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState("hero");
