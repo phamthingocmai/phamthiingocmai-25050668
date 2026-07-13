@@ -1197,7 +1197,7 @@ function Overview() {
                     <path
                       d={donutSlice(cx, cy, rOuter, rInner, start, end)}
                       fill={`url(#wheel-g-${i})`}
-                      stroke="hsl(var(--card))"
+                      stroke="#ffffff"
                       strokeWidth="3"
                     />
                     {/* number badge */}
