@@ -1220,18 +1220,7 @@ function Overview() {
                         <Icon className="h-5 w-5" />
                       </div>
                     </foreignObject>
-                    {/* title near inner ring */}
-                    <text
-                      x={titlePos.x}
-                      y={titlePos.y}
-                      textAnchor="middle"
-                      fontSize="13"
-                      fontWeight="800"
-                      fill="white"
-                      style={{ fontFamily: "'Fira Sans', sans-serif" }}
-                    >
-                      <tspan x={titlePos.x} dy="0">{t.title.length > 18 ? t.title.slice(0, 16) + "…" : t.title}</tspan>
-                    </text>
+                    {/* title omitted — full names shown in right-side legend */}
                   </g>
                 );
               })}
