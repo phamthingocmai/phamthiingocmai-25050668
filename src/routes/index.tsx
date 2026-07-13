@@ -2052,17 +2052,19 @@ function SkillsSection() {
                     const style = SKILL_STYLES[i];
                     const p = pointAt(i, s.level);
                     const a = angleFor(i);
-                    const lx = cx + (rMax + 34) * Math.cos(a);
-                    const ly = cy + (rMax + 34) * Math.sin(a);
+                    const lx = cx + (rMax + 52) * Math.cos(a);
+                    const ly = cy + (rMax + 52) * Math.sin(a);
+                    const bx = cx + (rMax + 18) * Math.cos(a);
+                    const by = cy + (rMax + 18) * Math.sin(a);
                     return (
                       <g key={s.name}>
-                        <circle cx={p.x} cy={p.y} r="7" fill={style.color} stroke="hsl(var(--card))" strokeWidth="2.5" />
+                        <circle cx={p.x} cy={p.y} r="7" fill={style.color} stroke="#ffffff" strokeWidth="2.5" />
                         <circle cx={p.x} cy={p.y} r="3" fill="white" opacity="0.85" />
                         {/* index badge at axis end */}
-                        <circle cx={cx + (rMax + 18) * Math.cos(a)} cy={cy + (rMax + 18) * Math.sin(a)} r="13" fill={style.color} />
+                        <circle cx={bx} cy={by} r="13" fill={style.color} />
                         <text
-                          x={cx + (rMax + 18) * Math.cos(a)}
-                          y={cy + (rMax + 18) * Math.sin(a) + 4}
+                          x={bx}
+                          y={by + 4}
                           textAnchor="middle"
                           fill="white"
                           fontSize="12"
@@ -2070,13 +2072,23 @@ function SkillsSection() {
                         >
                           {String(i + 1).padStart(2, "0")}
                         </text>
-                        {/* % label */}
+                        {/* % label — outside the badge with a soft chip so it stays legible */}
+                        <rect
+                          x={lx - 26}
+                          y={ly - 12}
+                          width="52"
+                          height="22"
+                          rx="11"
+                          fill="white"
+                          stroke={style.color}
+                          strokeWidth="1.5"
+                        />
                         <text
                           x={lx}
                           y={ly + 4}
                           textAnchor="middle"
                           fill={style.dark}
-                          fontSize="13"
+                          fontSize="14"
                           fontWeight="900"
                           style={{ fontFamily: "'DM Serif Display', serif" }}
                         >
