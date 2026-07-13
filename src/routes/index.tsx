@@ -403,7 +403,7 @@ const PROJECTS = [
     evidence: "Ảnh chụp bảng Trello phân công, giao diện Google Docs với comment, cấu trúc thư mục Google Drive và cuộc họp Google Meet.",
     analysis: [
       "Trello giúp minh bạch tiến độ và phát hiện sớm các nhiệm vụ chậm; hạn chế là không hiển thị % hoàn thành chi tiết.",
-      "Google Docs cho phép nhiều thành viên viết song song và kiểm soát chất lượng qua lịch sử chỉnh sửa – công cụ then chốt của leader.",
+      "Google Docs em thấy hữu ích nhất – cả nhóm viết song song, lịch sử chỉnh sửa cho leader biết ai làm gì, sửa gì.",
       "Bộ 4 công cụ tạo thành một hệ sinh thái làm việc hoàn chỉnh: quản lý – soạn thảo – lưu trữ – giao tiếp.",
     ],
     lesson: [
@@ -589,7 +589,7 @@ const SKILLS = [
   { name: "Làm việc nhóm trực tuyến", level: 91, use: "Quản lý dự án, phối hợp đa thành viên." },
   { name: "Sáng tạo nội dung số bằng AI", level: 93, use: "Sản xuất video, infographic, thuyết trình." },
   { name: "Sử dụng AI có trách nhiệm", level: 98, use: "Bảo đảm liêm chính học thuật, an toàn dữ liệu." },
-  { name: "Tự đánh giá & cải thiện bản thân", level: 96, use: "Lập kế hoạch học tập, phát triển bền vững." },
+  { name: "Tự đánh giá & cải thiện bản thân", level: 96, use: "Nhìn lại việc mình đã làm, chỉnh lại cách học." },
 ];
 
 // ============ HELPERS ============
