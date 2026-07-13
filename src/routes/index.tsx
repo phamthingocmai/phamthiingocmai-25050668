@@ -1181,7 +1181,7 @@ function Overview() {
               </defs>
 
               {/* soft outer shadow ring */}
-              <circle cx={cx} cy={cy} r={rOuter + 6} fill="hsl(var(--muted))" opacity="0.35" filter="url(#wheel-shadow)" />
+              <circle cx={cx} cy={cy} r={rOuter + 6} fill="#000" opacity="0.08" filter="url(#wheel-shadow)" />
 
               {TASKS.map((t, i) => {
                 const start = i * step + gap / 2;
