@@ -1189,7 +1189,7 @@ function Overview() {
                 const mid = (start + end) / 2;
                 const badgePos = polar(cx, cy, rOuter - 42, mid);
                 const iconPos = polar(cx, cy, rOuter - 95, mid);
-                const titlePos = polar(cx, cy, rInner + 55, mid);
+                void polar;
                 const c = WHEEL_COLORS[i];
                 const Icon = t.icon;
                 return (
