@@ -1187,10 +1187,11 @@ function Overview() {
                 const start = i * step + gap / 2;
                 const end = (i + 1) * step - gap / 2;
                 const mid = (start + end) / 2;
-                const iconPos = polar(cx, cy, rIcon, mid);
+                const badgePos = polar(cx, cy, rOuter - 42, mid);
+                const iconPos = polar(cx, cy, rOuter - 95, mid);
+                const titlePos = polar(cx, cy, rInner + 55, mid);
                 const c = WHEEL_COLORS[i];
                 const Icon = t.icon;
-                const labelPos = polar(cx, cy, rOuter - 60, mid);
                 return (
                   <g key={t.title} className="cursor-pointer transition-transform duration-300 hover:opacity-90"
                      onClick={() => scrollToId("projects")}>
@@ -1200,36 +1201,36 @@ function Overview() {
                       stroke="#ffffff"
                       strokeWidth="3"
                     />
-                    {/* number badge */}
-                    <circle cx={iconPos.x} cy={iconPos.y - 34} r="18" fill="white" opacity="0.95" />
+                    {/* number badge near outer edge */}
+                    <circle cx={badgePos.x} cy={badgePos.y} r="18" fill="white" opacity="0.95" />
                     <text
-                      x={iconPos.x}
-                      y={iconPos.y - 29}
+                      x={badgePos.x}
+                      y={badgePos.y + 6}
                       textAnchor="middle"
-                      fontSize="16"
+                      fontSize="17"
                       fontWeight="900"
                       fill={c.dark}
                       style={{ fontFamily: "'DM Serif Display', serif" }}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </text>
-                    {/* icon circle */}
-                    <foreignObject x={iconPos.x - 18} y={iconPos.y - 8} width="36" height="36">
-                      <div className="grid h-9 w-9 place-items-center rounded-full bg-white/95 shadow-sm" style={{ color: c.dark }}>
+                    {/* icon at mid-radius */}
+                    <foreignObject x={iconPos.x - 20} y={iconPos.y - 20} width="40" height="40">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-white/95 shadow-sm" style={{ color: c.dark }}>
                         <Icon className="h-5 w-5" />
                       </div>
                     </foreignObject>
-                    {/* title along slice */}
+                    {/* title near inner ring */}
                     <text
-                      x={labelPos.x}
-                      y={labelPos.y + 40}
+                      x={titlePos.x}
+                      y={titlePos.y}
                       textAnchor="middle"
-                      fontSize="14"
+                      fontSize="13"
                       fontWeight="800"
                       fill="white"
                       style={{ fontFamily: "'Fira Sans', sans-serif" }}
                     >
-                      <tspan x={labelPos.x} dy="0">{t.title.length > 22 ? t.title.slice(0, 20) + "…" : t.title}</tspan>
+                      <tspan x={titlePos.x} dy="0">{t.title.length > 18 ? t.title.slice(0, 16) + "…" : t.title}</tspan>
                     </text>
                   </g>
                 );
