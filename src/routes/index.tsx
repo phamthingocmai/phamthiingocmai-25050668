@@ -1927,10 +1927,10 @@ const SKILL_STYLES = [
 
 function SkillsSection() {
   // Radar chart geometry
-  const size = 560;
+  const size = 640;
   const cx = size / 2;
   const cy = size / 2;
-  const rMax = 210;
+  const rMax = 225;
   const n = SKILLS.length;
   const angleFor = (i: number) => -Math.PI / 2 + (i * 2 * Math.PI) / n;
   const pointAt = (i: number, pct: number) => {
