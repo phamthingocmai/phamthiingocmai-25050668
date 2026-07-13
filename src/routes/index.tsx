@@ -1184,15 +1184,13 @@ function Overview() {
               <circle cx={cx} cy={cy} r={rOuter + 6} fill="hsl(var(--muted))" opacity="0.35" filter="url(#wheel-shadow)" />
 
               {TASKS.map((t, i) => {
-                const start = i * step - 90 + gap / 2;
-                const end = (i + 1) * step - 90 - gap / 2;
+                const start = i * step + gap / 2;
+                const end = (i + 1) * step - gap / 2;
                 const mid = (start + end) / 2;
-                const iconPos = polar(cx, cy, rIcon, mid + 90); // convert back (polar uses -90 offset)
-                // fix: our polar already includes -90 offset. mid is already absolute deg. Use polar with (mid+90) to undo the internal shift.
+                const iconPos = polar(cx, cy, rIcon, mid);
                 const c = WHEEL_COLORS[i];
                 const Icon = t.icon;
-                // Outer label position
-                const labelPos = polar(cx, cy, rOuter - 60, mid + 90);
+                const labelPos = polar(cx, cy, rOuter - 60, mid);
                 return (
                   <g key={t.title} className="cursor-pointer transition-transform duration-300 hover:opacity-90"
                      onClick={() => scrollToId("projects")}>
