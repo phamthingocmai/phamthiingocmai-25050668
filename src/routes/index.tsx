@@ -1110,61 +1110,183 @@ function InfoRow({ icon: Icon, label, value }: any) {
   );
 }
 
-// ============ OVERVIEW / TIMELINE ============
+// ============ OVERVIEW / WHEEL ============
+const WHEEL_COLORS = [
+  { color: "#3b82f6", light: "#93c5fd", dark: "#1d4ed8" },
+  { color: "#8b5cf6", light: "#c4b5fd", dark: "#6d28d9" },
+  { color: "#f59e0b", light: "#fcd34d", dark: "#b45309" },
+  { color: "#84cc16", light: "#bef264", dark: "#4d7c0f" },
+  { color: "#ec4899", light: "#f9a8d4", dark: "#be185d", },
+  { color: "#14b8a6", light: "#5eead4", dark: "#0f766e" },
+];
+
+function polar(cx: number, cy: number, r: number, angleDeg: number) {
+  const a = ((angleDeg - 90) * Math.PI) / 180;
+  return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+}
+
+function donutSlice(cx: number, cy: number, rOuter: number, rInner: number, startDeg: number, endDeg: number) {
+  const p1 = polar(cx, cy, rOuter, startDeg);
+  const p2 = polar(cx, cy, rOuter, endDeg);
+  const p3 = polar(cx, cy, rInner, endDeg);
+  const p4 = polar(cx, cy, rInner, startDeg);
+  const largeArc = endDeg - startDeg > 180 ? 1 : 0;
+  return [
+    `M ${p1.x} ${p1.y}`,
+    `A ${rOuter} ${rOuter} 0 ${largeArc} 1 ${p2.x} ${p2.y}`,
+    `L ${p3.x} ${p3.y}`,
+    `A ${rInner} ${rInner} 0 ${largeArc} 0 ${p4.x} ${p4.y}`,
+    "Z",
+  ].join(" ");
+}
+
 function Overview() {
+  const size = 720;
+  const cx = size / 2;
+  const cy = size / 2;
+  const rOuter = 340;
+  const rInner = 130;
+  const rIcon = 245;
+  const gap = 1.6; // deg gap between slices
+  const n = TASKS.length;
+  const step = 360 / n;
+
   return (
     <section id="overview" className="relative py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionTitle
           kicker="Hành trình"
           title="Tổng quan 6 nhiệm vụ học tập"
-          subtitle="Timeline khép kín từ kỹ năng nền tảng đến AI có trách nhiệm."
+          subtitle="Vòng tròn khép kín từ kỹ năng nền tảng đến AI có trách nhiệm — mỗi cung là một dự án."
         />
-        <div className="relative mt-14">
-          {/* line */}
-          <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/40 to-secondary lg:left-1/2 lg:-translate-x-1/2" />
-          <ul className="space-y-10">
+
+        <div className="reveal mt-14 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
+          {/* Wheel */}
+          <div className="relative mx-auto w-full max-w-[720px]">
+            <svg viewBox={`0 0 ${size} ${size}`} className="h-full w-full">
+              <defs>
+                {TASKS.map((_, i) => {
+                  const c = WHEEL_COLORS[i];
+                  return (
+                    <radialGradient key={i} id={`wheel-g-${i}`} cx="50%" cy="50%" r="80%">
+                      <stop offset="0%" stopColor={c.light} />
+                      <stop offset="60%" stopColor={c.color} />
+                      <stop offset="100%" stopColor={c.dark} />
+                    </radialGradient>
+                  );
+                })}
+                <filter id="wheel-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="6" />
+                </filter>
+              </defs>
+
+              {/* soft outer shadow ring */}
+              <circle cx={cx} cy={cy} r={rOuter + 6} fill="hsl(var(--muted))" opacity="0.35" filter="url(#wheel-shadow)" />
+
+              {TASKS.map((t, i) => {
+                const start = i * step - 90 + gap / 2;
+                const end = (i + 1) * step - 90 - gap / 2;
+                const mid = (start + end) / 2;
+                const iconPos = polar(cx, cy, rIcon, mid + 90); // convert back (polar uses -90 offset)
+                // fix: our polar already includes -90 offset. mid is already absolute deg. Use polar with (mid+90) to undo the internal shift.
+                const c = WHEEL_COLORS[i];
+                const Icon = t.icon;
+                // Outer label position
+                const labelPos = polar(cx, cy, rOuter - 60, mid + 90);
+                return (
+                  <g key={t.title} className="cursor-pointer transition-transform duration-300 hover:opacity-90"
+                     onClick={() => scrollToId("projects")}>
+                    <path
+                      d={donutSlice(cx, cy, rOuter, rInner, start, end)}
+                      fill={`url(#wheel-g-${i})`}
+                      stroke="hsl(var(--card))"
+                      strokeWidth="3"
+                    />
+                    {/* number badge */}
+                    <circle cx={iconPos.x} cy={iconPos.y - 34} r="18" fill="white" opacity="0.95" />
+                    <text
+                      x={iconPos.x}
+                      y={iconPos.y - 29}
+                      textAnchor="middle"
+                      fontSize="16"
+                      fontWeight="900"
+                      fill={c.dark}
+                      style={{ fontFamily: "'DM Serif Display', serif" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </text>
+                    {/* icon circle */}
+                    <foreignObject x={iconPos.x - 18} y={iconPos.y - 8} width="36" height="36">
+                      <div className="grid h-9 w-9 place-items-center rounded-full bg-white/95 shadow-sm" style={{ color: c.dark }}>
+                        <Icon className="h-5 w-5" />
+                      </div>
+                    </foreignObject>
+                    {/* title along slice */}
+                    <text
+                      x={labelPos.x}
+                      y={labelPos.y + 40}
+                      textAnchor="middle"
+                      fontSize="14"
+                      fontWeight="800"
+                      fill="white"
+                      style={{ fontFamily: "'Fira Sans', sans-serif" }}
+                    >
+                      <tspan x={labelPos.x} dy="0">{t.title.length > 22 ? t.title.slice(0, 20) + "…" : t.title}</tspan>
+                    </text>
+                  </g>
+                );
+              })}
+
+              {/* Center hub */}
+              <circle cx={cx} cy={cy} r={rInner - 8} fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+              <circle cx={cx} cy={cy} r={rInner - 22} fill="none" stroke="hsl(var(--primary))" strokeOpacity="0.35" strokeDasharray="4 6" />
+              <text x={cx} y={cy - 18} textAnchor="middle" fontSize="13" fontWeight="800" fill="hsl(var(--muted-foreground))" style={{ letterSpacing: "0.2em" }}>
+                HÀNH TRÌNH
+              </text>
+              <text x={cx} y={cy + 14} textAnchor="middle" fontSize="42" fontWeight="900" fill="hsl(var(--primary))" style={{ fontFamily: "'DM Serif Display', serif" }}>
+                6
+              </text>
+              <text x={cx} y={cy + 46} textAnchor="middle" fontSize="14" fontWeight="700" fill="hsl(var(--foreground))">
+                nhiệm vụ học tập
+              </text>
+            </svg>
+          </div>
+
+          {/* Legend list */}
+          <ol className="space-y-3">
             {TASKS.map((t, i) => {
               const Icon = t.icon;
-              const left = i % 2 === 0;
+              const c = WHEEL_COLORS[i];
               return (
-                <li
-                  key={t.title}
-                  className={`reveal relative grid grid-cols-[2.5rem_minmax(0,1fr)] gap-4 lg:grid-cols-2 lg:gap-10`}
-                >
-                  {/* dot */}
-                  <div className="absolute left-4 lg:left-1/2 lg:-translate-x-1/2 grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg -translate-x-1/2">
-                    <span className="text-xs font-bold">{i + 1}</span>
-                  </div>
-                  <div className={`col-start-2 lg:col-start-1 ${left ? "lg:pr-16 lg:text-right" : "lg:col-start-2 lg:pl-16"}`}>
-                    <div className="inline-flex items-center gap-2 rounded-2xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]">
-                      <div className={`flex flex-col ${left ? "lg:items-end" : "lg:items-start"} items-start`}>
-                        <div className="flex items-center gap-2">
-                          <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary">
-                            <Icon className="h-5 w-5" />
-                          </span>
-                          <span className="text-xs font-semibold uppercase tracking-wide text-secondary">
-                            Nhiệm vụ {i + 1}
-                          </span>
-                        </div>
-                        <h4 className="mt-3 text-lg font-bold">{t.title}</h4>
-                        <p className="mt-1 text-sm text-muted-foreground max-w-md">{t.desc}</p>
-                        <span className="mt-3 rounded-full bg-secondary/20 px-3 py-1 text-xs font-medium text-secondary-foreground">
-                          {t.tag}
-                        </span>
-                        <button
-                          onClick={() => scrollToId("projects")}
-                          className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
-                        >
-                          Xem chi tiết <ArrowRight className="h-4 w-4" />
-                        </button>
-                      </div>
+                <li key={t.title}>
+                  <button
+                    onClick={() => scrollToId("projects")}
+                    className="group grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-2xl border border-border/60 bg-card p-3 text-left transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-soft)]"
+                  >
+                    <div
+                      className="relative grid h-11 w-11 shrink-0 place-items-center rounded-xl text-white shadow-sm"
+                      style={{ background: `linear-gradient(135deg, ${c.light}, ${c.color})` }}
+                    >
+                      <Icon className="h-5 w-5" />
+                      <span
+                        className="absolute -bottom-1 -right-1 grid h-4 w-4 place-items-center rounded-full bg-card text-[9px] font-black"
+                        style={{ color: c.dark, border: `1.5px solid ${c.color}` }}
+                      >
+                        {i + 1}
+                      </span>
                     </div>
-                  </div>
+                    <div className="min-w-0">
+                      <div className="truncate text-sm font-bold" style={{ color: c.dark, fontFamily: "'Fira Sans', sans-serif" }}>
+                        {t.title}
+                      </div>
+                      <div className="mt-0.5 truncate text-xs text-muted-foreground">{t.tag}</div>
+                    </div>
+                    <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
+                  </button>
                 </li>
               );
             })}
-          </ul>
+          </ol>
         </div>
       </div>
     </section>
