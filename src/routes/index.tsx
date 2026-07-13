@@ -1463,32 +1463,69 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
             </div>
 
             {project.evidenceImages ? (
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
-                {project.evidenceImages.map((img: { url: string; caption: string }, i: number) => (
-                  <a
-                    key={i}
-                    href={img.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
-                  >
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-background">
-                      <img
-                        src={img.url}
-                        alt={`Bài ${project.id} — ${img.caption}`}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition group-hover:scale-[1.03]"
-                      />
-                      <span className="absolute left-2 top-2 rounded-full bg-background/85 px-2 py-0.5 text-[10px] font-bold text-primary shadow-sm backdrop-blur">
-                        #{String(i + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                    <figcaption className="border-t border-border bg-card px-3 py-2.5 text-xs font-medium text-foreground/80">
-                      {i + 1}. {img.caption}
-                    </figcaption>
-                  </a>
-                ))}
-              </div>
+              (() => {
+                const MAX_VISIBLE = 6;
+                const all = project.evidenceImages as { url: string; caption: string }[];
+                const visible = all.length > MAX_VISIBLE + 1 ? all.slice(0, MAX_VISIBLE) : all;
+                const remaining = all.length - visible.length;
+                return (
+                  <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
+                    {visible.map((img, i) => (
+                      <a
+                        key={i}
+                        href={img.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
+                      >
+                        <div className="relative aspect-[4/3] w-full overflow-hidden bg-background">
+                          <img
+                            src={img.url}
+                            alt={`Bài ${project.id} — ${img.caption}`}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition group-hover:scale-[1.03]"
+                          />
+                          <span className="absolute left-2 top-2 rounded-full bg-background/85 px-2 py-0.5 text-[10px] font-bold text-primary shadow-sm backdrop-blur">
+                            #{String(i + 1).padStart(2, "0")}
+                          </span>
+                        </div>
+                        <figcaption className="border-t border-border bg-card px-3 py-2.5 text-xs font-medium text-foreground/80">
+                          {i + 1}. {img.caption}
+                        </figcaption>
+                      </a>
+                    ))}
+                    {remaining > 0 && (
+                      <a
+                        href="#evidence"
+                        className="group relative block overflow-hidden rounded-xl border border-primary/30 bg-gradient-to-br from-primary/10 via-card to-secondary/10 shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
+                      >
+                        <div className="relative aspect-[4/3] w-full overflow-hidden">
+                          <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-0.5 opacity-40">
+                            {all.slice(MAX_VISIBLE, MAX_VISIBLE + 4).map((img, i) => (
+                              <img
+                                key={i}
+                                src={img.url}
+                                alt=""
+                                loading="lazy"
+                                className="h-full w-full object-cover"
+                              />
+                            ))}
+                          </div>
+                          <div className="absolute inset-0 grid place-items-center bg-background/50 backdrop-blur-[2px]">
+                            <div className="text-center">
+                              <div className="text-4xl font-black text-primary">+{remaining}</div>
+                              <div className="mt-1 text-xs font-semibold text-foreground/80">ảnh minh chứng</div>
+                            </div>
+                          </div>
+                        </div>
+                        <figcaption className="border-t border-border bg-card px-3 py-2.5 text-xs font-semibold text-primary">
+                          Xem toàn bộ trong Evidence Gallery →
+                        </figcaption>
+                      </a>
+                    )}
+                  </div>
+                );
+              })()
             ) : (
               <>
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
