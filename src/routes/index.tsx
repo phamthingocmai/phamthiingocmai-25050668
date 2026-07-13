@@ -1162,7 +1162,7 @@ function Overview() {
 
         <div className="reveal mt-14 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
           {/* Wheel */}
-          <div className="relative mx-auto w-full max-w-[720px]">
+          <div className="relative mx-auto w-full max-w-[520px]">
             <svg viewBox={`0 0 ${size} ${size}`} className="h-full w-full">
               <defs>
                 {TASKS.map((_, i) => {
