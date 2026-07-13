@@ -2255,12 +2255,6 @@ function Conclusion() {
             </div>
           </div>
 
-          <div className="mt-6 flex flex-col gap-3 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 p-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm">
-              {"\n"}
-            </p>
-            <p className="text-xs text-muted-foreground">{"\n"}</p>
-          </div>
         </div>
       </div>
     </section>
