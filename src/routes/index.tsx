@@ -197,22 +197,22 @@ const PROJECTS = [
       "Nắm được cơ chế Recycle Bin và Shift + Delete để chủ động khi xử lý tệp nhạy cảm hoặc dung lượng lớn.",
     ],
     lesson: [
-      "Kỹ năng quản lý tệp là năng lực nền tảng của công dân số, quyết định tốc độ và độ chính xác trong học tập.",
-      "Phím tắt và quy tắc đặt tên nhất quán giúp tiết kiệm thời gian đáng kể trong các bài tập dài hạn.",
+      "Trước đây em hay lưu file linh tinh trên Desktop nên tìm lại rất mệt. Bài này giúp em có thói quen đặt tên và chia thư mục ngay từ đầu.",
+      "Học được mấy phím tắt (Ctrl+X, Shift+Delete) tưởng nhỏ mà tiết kiệm thời gian thật.",
     ],
     evaluation: {
       strengths: [
-        "Hoàn thành đầy đủ 12 thao tác theo yêu cầu đề bài, có ảnh minh chứng cho từng bước.",
-        "Đặt tên tệp/thư mục thống nhất theo mẫu ThucHanh_HọTên và mô tả nội dung (GhiChuQuanTrong, DiChuyen).",
-        "Thao tác thành thạo phím tắt Ctrl+C/V/X, Shift+Delete và biết cách khôi phục từ Recycle Bin.",
+        "Em làm đủ 12 bước theo đề, có ảnh chụp từng bước.",
+        "Đặt tên tệp/thư mục thống nhất theo mẫu ThucHanh_HọTên nên nhìn rất gọn.",
+        "Đã quen tay dùng phím tắt thay vì click chuột phải.",
       ],
       improvements: [
-        "Có thể mở rộng thêm cách nén (.zip) và chia sẻ thư mục qua OneDrive để tăng tính ứng dụng.",
-        "Bổ sung ghi chú README.txt trong mỗi thư mục con để mô tả mục đích lưu trữ.",
+        "Lần sau em muốn thử thêm nén .zip và upload lên OneDrive cho tiện chia sẻ.",
+        "Có thể để một file README.txt trong mỗi thư mục con để ghi chú mục đích.",
       ],
       takeaways: [
-        "Recycle Bin là 'lưới an toàn' cho các thao tác xóa nhầm – luôn nên kiểm tra trước khi Shift + Delete.",
-        "Cut & Paste là cách di chuyển an toàn hơn kéo–thả khi thư mục đích ở xa vị trí hiện tại.",
+        "Thùng rác hoá ra hữu ích – có lần em suýt xóa nhầm bài tập, may còn khôi phục được.",
+        "Cut & Paste an toàn hơn kéo–thả, nhất là khi thư mục đích ở xa.",
       ],
     },
     integrity: {
@@ -254,22 +254,22 @@ const PROJECTS = [
       "Kết hợp cả 4 nhóm nguồn đảm bảo tính khoa học, khách quan và cập nhật cho một nghiên cứu về hành vi người tiêu dùng.",
     ],
     lesson: [
-      "Chiến lược tìm kiếm quan trọng hơn số lượng từ khoá – tiêu chí đánh giá quyết định chất lượng nghiên cứu.",
-      "Ưu tiên tài liệu từ 2015–2024 để đảm bảo tính cập nhật, nhưng vẫn giữ các nghiên cứu kinh điển (Ajzen 1991, Davis 1989) làm khung lý thuyết.",
+      "Ban đầu em cứ nghĩ gõ nhiều từ khoá là ra tài liệu tốt – hoá ra chọn nguồn còn quan trọng hơn.",
+      "Em vẫn giữ mấy bài kinh điển (Ajzen 1991, Davis 1989) làm gốc, còn bài mới (2020–2024) để cập nhật.",
     ],
     evaluation: {
       strengths: [
-        "Xây dựng được 6 từ khoá chuyên ngành và 4 nhóm nguồn tìm kiếm rõ ràng.",
-        "Tổng hợp 12 tài liệu đa dạng: sách kinh điển, bài báo peer-review, báo cáo OECD/Nielsen/Statista.",
-        "Áp dụng đủ 7 tiêu chí đánh giá và có bảng so sánh độ tin cậy theo từng nhóm nguồn.",
+        "Chọn được 6 từ khoá tiếng Anh và 4 nhóm nguồn khá rõ ràng.",
+        "Gom được 12 tài liệu: có sách gốc, có bài báo peer-review, có báo cáo OECD/Nielsen/Statista.",
+        "Đã áp dụng 7 tiêu chí đánh giá và có bảng so sánh giữa các nhóm nguồn.",
       ],
       improvements: [
-        "Nên bổ sung 1–2 nghiên cứu về TMĐT tại Việt Nam để tăng tính bối cảnh hoá.",
-        "Có thể sử dụng Google Scholar Alerts để cập nhật liên tục các bài mới về hành vi TMĐT.",
+        "Em muốn tìm thêm 1–2 nghiên cứu về TMĐT tại Việt Nam cho gần thực tế hơn.",
+        "Định thử Google Scholar Alerts để nhận email khi có bài mới về chủ đề này.",
       ],
       takeaways: [
-        "Kết hợp sách nền tảng (Kotler, Turban, Laudon) với bài báo mới giúp vừa vững lý thuyết vừa cập nhật thực tiễn.",
-        "Nguồn Internet chỉ nên dùng khi truy được cơ quan xuất bản uy tín (OECD, Nielsen, Google Research).",
+        "Sách nền tảng đọc chậm nhưng hiểu sâu; bài báo mới thì cập nhật – phải kết hợp cả hai.",
+        "Nguồn Internet em chỉ giữ khi thấy tên tổ chức uy tín (OECD, Nielsen, Google Research).",
       ],
     },
     integrity: {
@@ -336,22 +336,22 @@ const PROJECTS = [
       "Prompt nâng cao (có vai trò + bullet + phân loại nhận biết/thông hiểu/vận dụng/vận dụng cao) cho kết quả sâu, đầy đủ và dễ ôn tập nhất.",
     ],
     lesson: [
-      "Muốn AI trả lời tốt, phải đặt câu hỏi tốt – prompt tốt như một bản mô tả yêu cầu công việc rõ ràng.",
-      "Vai trò (Role prompting) + cấu trúc bullet + định hướng đầu ra là ba yếu tố quyết định chất lượng đầu ra.",
+      "Hoá ra hỏi AI cũng như nhờ người khác – nói không rõ thì họ làm sai ý mình.",
+      "Từ khi em thêm 'vai trò' và yêu cầu bullet vào prompt, ChatGPT trả lời gọn hẳn.",
     ],
     evaluation: {
       strengths: [
-        "Thử nghiệm đủ 3 cấp độ prompt trên 3 tác vụ khác nhau – tổng cộng 9 lượt thử.",
-        "Có bảng so sánh định tính (Thấp/Trung bình/Cao) theo 4 tiêu chí cho từng tác vụ.",
-        "Rút ra được 6 nguyên tắc viết prompt có thể áp dụng lại cho các bài tập khác.",
+        "Thử đủ 3 cấp prompt cho 3 tác vụ – tổng 9 lượt, chụp lại đầy đủ.",
+        "Có bảng so sánh Thấp/Trung bình/Cao theo 4 tiêu chí cho từng tác vụ.",
+        "Rút ra được 6 nguyên tắc viết prompt em có thể dùng lại cho bài khác.",
       ],
       improvements: [
-        "Nên bổ sung số liệu định lượng (thời gian đọc, số ý đúng) để so sánh khách quan hơn.",
-        "Có thể thử thêm trên Gemini hoặc Claude để đối chiếu giữa các mô hình.",
+        "Lần sau em muốn đo thời gian đọc kết quả để so sánh khách quan hơn.",
+        "Định thử thêm trên Gemini xem có khác ChatGPT không.",
       ],
       takeaways: [
-        "Cùng chủ đề, prompt khác nhau cho ra kết quả rất khác về chất lượng.",
-        "Prompt nâng cao có phân loại theo 4 mức tư duy (Bloom) rất hiệu quả cho việc tự ôn tập.",
+        "Cùng đề bài mà prompt khác nhau là kết quả khác hẳn – nhiều khi hơn kém một trời một vực.",
+        "Prompt kiểu Bloom (nhận biết → vận dụng cao) em thấy rất hợp để tự ôn thi.",
       ],
     },
     integrity: {
@@ -403,26 +403,26 @@ const PROJECTS = [
     evidence: "Ảnh chụp bảng Trello phân công, giao diện Google Docs với comment, cấu trúc thư mục Google Drive và cuộc họp Google Meet.",
     analysis: [
       "Trello giúp minh bạch tiến độ và phát hiện sớm các nhiệm vụ chậm; hạn chế là không hiển thị % hoàn thành chi tiết.",
-      "Google Docs cho phép nhiều thành viên viết song song và kiểm soát chất lượng qua lịch sử chỉnh sửa – công cụ then chốt của leader.",
+      "Google Docs em thấy hữu ích nhất – cả nhóm viết song song, lịch sử chỉnh sửa cho leader biết ai làm gì, sửa gì.",
       "Bộ 4 công cụ tạo thành một hệ sinh thái làm việc hoàn chỉnh: quản lý – soạn thảo – lưu trữ – giao tiếp.",
     ],
     lesson: [
-      "Kỹ năng lãnh đạo và phân chia công việc rõ ràng là yếu tố then chốt của một dự án nhóm trực tuyến.",
-      "Giao tiếp chủ động và lắng nghe – tổng hợp ý kiến giúp giảm mâu thuẫn khi các thành viên có quan điểm khác nhau.",
+      "Làm leader mới thấy khó – phân việc rõ ràng thôi đã hết cả buổi họp.",
+      "Có bạn muốn đi hướng khác, em phải chịu khó nghe rồi tổng hợp lại chứ không cãi thắng thua.",
     ],
     evaluation: {
       strengths: [
-        "Với vai trò leader, đảm bảo được tiến độ toàn nhóm và tương tác ≥ 10 lần/tuần theo tiêu chí đề bài.",
-        "Sử dụng phối hợp cả 4 công cụ, mỗi công cụ đảm nhiệm một chức năng rõ ràng.",
-        "Xử lý tốt tình huống tranh luận: lắng nghe → tổng hợp → chọn phương án chung → phân chia lại công việc.",
+        "Em giữ được nhịp làm việc của nhóm và tương tác ≥ 10 lần/tuần đúng như đề yêu cầu.",
+        "Dùng phối hợp cả 4 công cụ, mỗi cái một chức năng riêng nên không bị chồng chéo.",
+        "Có lần cả nhóm tranh cãi, em xử lý bằng cách: lắng nghe → tổng hợp → chốt phương án chung → chia lại việc.",
       ],
       improvements: [
-        "Nên bổ sung Google Meet Recording để lưu lại nội dung họp thay vì chỉ ghi biên bản.",
-        "Có thể thêm cột 'Review' trước 'Done' trên Trello để tăng chất lượng kiểm duyệt bài.",
+        "Nên bật ghi hình Google Meet thay vì chỉ ghi biên bản – có lần em quên ý bạn nói.",
+        "Có thể thêm cột 'Review' trước 'Done' trên Trello để kiểm chất lượng trước khi coi là xong.",
       ],
       takeaways: [
-        "Sự hợp tác và tinh thần trách nhiệm của từng cá nhân quyết định thành công của dự án nhóm.",
-        "Công cụ phù hợp giúp tối ưu hoá quy trình – nhưng công cụ không thay thế được kỹ năng lãnh đạo và giao tiếp.",
+        "Nhóm đi được xa hay không phụ thuộc vào tinh thần từng người, chứ không phải chỉ mỗi leader.",
+        "Công cụ chỉ hỗ trợ – nếu không nói chuyện được với nhau thì công cụ nào cũng vô ích.",
       ],
     },
     integrity: {
@@ -464,22 +464,22 @@ const PROJECTS = [
       "Canva AI: giao diện thân thiện, nhiều template; tuy nhiên vẫn cần chỉnh sửa thủ công để đạt độ hoàn thiện cao.",
     ],
     lesson: [
-      "AI rút ngắn quy trình sáng tạo, cho phép tập trung vào khâu chỉnh sửa và phát triển ý tưởng đột phá.",
-      "AI không thay thế con người – yếu tố sáng tạo và tư duy cá nhân vẫn quyết định chất lượng sản phẩm cuối.",
+      "Em làm nhanh hơn hẳn khi có AI đỡ mấy khâu ban đầu, nhưng vẫn phải tự chỉnh câu chữ cuối.",
+      "AI không thay được mình – nó ra 4 phương án, em vẫn phải chọn và sửa cái phù hợp nhất.",
     ],
     evaluation: {
       strengths: [
-        "Phối hợp 3 công cụ AI cho 3 khâu khác nhau: nội dung – hình ảnh – thiết kế.",
-        "Có bước kiểm duyệt cá nhân sau mỗi khâu để đảm bảo đầu ra phù hợp.",
-        "Sản phẩm cuối là infographic hoàn chỉnh 5 mục, màu sắc pastel hài hoà, có icon minh hoạ.",
+        "Dùng 3 công cụ cho 3 khâu khác nhau: nội dung – hình ảnh – thiết kế.",
+        "Sau mỗi khâu em đều dừng lại xem lại và chỉnh, không lấy nguyên đầu ra AI.",
+        "Sản phẩm cuối là infographic 5 mục, tông pastel xanh–tím khá hài hoà, có icon minh hoạ.",
       ],
       improvements: [
-        "Firefly cần thử thêm prompt tiếng Việt / bối cảnh Việt Nam để ảnh sát chủ đề sinh viên VN.",
-        "Nên ghi rõ nguồn công cụ AI ngay trên infographic (credit AI tools).",
+        "Firefly em muốn thử prompt tiếng Việt hoặc bối cảnh sinh viên VN cho gần chủ đề hơn.",
+        "Nên ghi credit công cụ AI ngay trên infographic để minh bạch.",
       ],
       takeaways: [
-        "Kết hợp AI + tư duy cá nhân giúp tạo sản phẩm nhanh mà vẫn giữ được dấu ấn cá nhân.",
-        "Prompt càng cụ thể (phong cách, màu sắc, số mục) thì đầu ra AI càng bám sát ý tưởng ban đầu.",
+        "Kết hợp AI với ý mình thì sản phẩm nhanh mà vẫn giữ được cái 'chất' riêng.",
+        "Càng viết prompt cụ thể (phong cách, màu, số mục) thì AI càng bám sát ý – không lan man.",
       ],
     },
     integrity: {
@@ -521,22 +521,22 @@ const PROJECTS = [
       "Sử dụng AI đúng cách giúp tiếp cận kiến thức nhanh, hỗ trợ ngoại ngữ và cá nhân hoá học tập.",
     ],
     lesson: [
-      "AI nên được xem là 'trợ lý học tập' chứ không phải 'người làm thay'.",
-      "Trung thực học thuật và tư duy phản biện là ranh giới không thể thoả hiệp với bất kỳ công cụ nào.",
+      "Em nghĩ AI giống như trợ giảng chứ không phải người làm bài giùm mình.",
+      "Cái gì đụng đến trung thực học tập thì phải rõ ràng, không nhân nhượng, dù AI có tiện đến đâu.",
     ],
     evaluation: {
       strengths: [
-        "So sánh có chiều sâu giữa chính sách VNU và Oxford, chỉ ra được điểm chung 'AI có kiểm soát'.",
-        "Thực hành đầy đủ 3 prompt trên một chủ đề học thuật thật, có đánh giá & chỉnh sửa đầu ra.",
-        "Bộ 7 nguyên tắc cá nhân bao phủ đủ các nhóm rủi ro: đạo văn, phụ thuộc, sai lệch, quyền riêng tư.",
+        "So sánh được điểm chung giữa VNU và Oxford – cả hai đều cho phép AI 'có kiểm soát'.",
+        "Thử đủ 3 prompt trên một chủ đề học thuật thật, có ghi lại phần chỉnh sửa đầu ra.",
+        "Bộ 7 nguyên tắc em đặt ra bao được các rủi ro chính: đạo văn, phụ thuộc, sai lệch, dữ liệu cá nhân.",
       ],
       improvements: [
-        "Cần cụ thể hoá mẫu trích dẫn AI khi nộp bài (ví dụ APA style cho ChatGPT).",
-        "Bổ sung tình huống mô phỏng (case study) để kiểm tra tính khả thi của nguyên tắc.",
+        "Cần ghi rõ mẫu trích dẫn AI khi nộp bài (kiểu APA cho ChatGPT).",
+        "Nên có thêm 1–2 tình huống giả định để thử xem nguyên tắc mình đặt có thực sự dùng được không.",
       ],
       takeaways: [
-        "AI không bị cấm hoàn toàn mà cần được sử dụng có kiểm soát và minh bạch.",
-        "Người học phải duy trì tư duy độc lập – AI chỉ hỗ trợ, không thay thế năng lực cá nhân.",
+        "AI không bị cấm hoàn toàn, nhưng phải dùng có kiểm soát và nói rõ mình đã dùng.",
+        "AI hỗ trợ mình chứ không thay mình suy nghĩ – cái này em phải tự nhắc mình mỗi lần dùng.",
       ],
     },
     integrity: {
@@ -589,7 +589,7 @@ const SKILLS = [
   { name: "Làm việc nhóm trực tuyến", level: 91, use: "Quản lý dự án, phối hợp đa thành viên." },
   { name: "Sáng tạo nội dung số bằng AI", level: 93, use: "Sản xuất video, infographic, thuyết trình." },
   { name: "Sử dụng AI có trách nhiệm", level: 98, use: "Bảo đảm liêm chính học thuật, an toàn dữ liệu." },
-  { name: "Tự đánh giá & cải thiện bản thân", level: 96, use: "Lập kế hoạch học tập, phát triển bền vững." },
+  { name: "Tự đánh giá & cải thiện bản thân", level: 96, use: "Nhìn lại việc mình đã làm, chỉnh lại cách học." },
 ];
 
 // ============ HELPERS ============
