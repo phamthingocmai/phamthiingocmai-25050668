@@ -2163,36 +2163,36 @@ function Conclusion() {
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
           <ReflectCard title="Trải nghiệm & tâm đắc" tone="primary">
             <ul className="space-y-2 text-sm">
-              <li>• Nhận ra tầm quan trọng của <b>tư duy có cấu trúc</b> khi trình bày sản phẩm học tập.</li>
-              <li>• Tâm đắc nhất là <b>bộ nguyên tắc sử dụng AI có trách nhiệm</b> — sản phẩm mang dấu ấn cá nhân.</li>
-              <li>• Trưởng thành trong việc <b>tự đánh giá</b> và nhìn nhận điểm mạnh, điểm cần cải thiện.</li>
+              <li>• Trước đây em nghĩ portfolio chỉ là gom bài lại. Làm xong mới thấy quan trọng là <b>sắp xếp lại đầu mình</b>.</li>
+              <li>• Vui nhất là lúc viết được cái prompt tốt cho ChatGPT ở Bài 3 – ra đúng ý luôn, đỡ phải sửa.</li>
+              <li>• Em bắt đầu tự chấm điểm bài mình trước khi nộp, thấy khách quan hơn hẳn.</li>
             </ul>
           </ReflectCard>
 
           <ReflectCard title="Khó khăn đã gặp" tone="secondary">
             <ul className="space-y-2 text-sm">
-              <li>• Sắp xếp nội dung sao cho khoa học, tránh trùng lặp.</li>
-              <li>• Đánh giá độ tin cậy của thông tin giữa nhiều nguồn.</li>
-              <li>• Viết prompt đủ rõ để AI phản hồi đúng mục tiêu.</li>
-              <li>• Cân bằng giữa sử dụng AI và tư duy cá nhân.</li>
+              <li>• Bài 2 tìm được nhiều tài liệu quá, em bị "loạn" không biết chọn cái nào.</li>
+              <li>• Bài 4 có bạn muốn làm chủ đề khác, cả nhóm bàn mãi mới thống nhất được.</li>
+              <li>• Viết prompt sao cho AI hiểu đúng ý – nhiều khi phải sửa 3–4 lần.</li>
+              <li>• Có lúc em định copy nguyên đoạn AI trả về cho nhanh, phải tự nhắc mình dừng lại.</li>
             </ul>
           </ReflectCard>
 
           <ReflectCard title="Cách khắc phục" tone="primary">
             <ul className="space-y-2 text-sm">
-              <li>• Lập kế hoạch chi tiết trước khi thực hiện từng bài tập.</li>
-              <li>• Kiểm chứng thông tin từ nhiều nguồn học thuật.</li>
-              <li>• Iterative — so sánh nhiều phiên bản prompt, ghi lại lý do cải tiến.</li>
-              <li>• Chủ động biên tập, cá nhân hoá sản phẩm AI trước khi sử dụng.</li>
+              <li>• Em bắt đầu ghi checklist trước mỗi bài để không bỏ sót yêu cầu đề.</li>
+              <li>• Với nguồn tài liệu, em ưu tiên đọc abstract trước rồi mới quyết định giữ lại.</li>
+              <li>• Prompt nào chưa ưng, em lưu lại và sửa dần chứ không xoá đi làm lại từ đầu.</li>
+              <li>• Đầu ra AI em luôn đọc kỹ, viết lại bằng lời của mình rồi mới đưa vào bài.</li>
             </ul>
           </ReflectCard>
 
           <ReflectCard title="Định hướng tương lai" tone="secondary">
             <ul className="space-y-2 text-sm">
-              <li>• Tiếp tục dùng Portfolio để lưu trữ sản phẩm học tập.</li>
-              <li>• Ứng dụng kỹ năng số vào học tập, nghiên cứu và công việc.</li>
-              <li>• Sử dụng AI như công cụ hỗ trợ học tập có trách nhiệm và bền vững.</li>
-              <li>• Chia sẻ Portfolio để nhận phản hồi và tiếp tục cải thiện.</li>
+              <li>• Em muốn giữ thói quen làm portfolio cho các môn khác, nhất là môn chuyên ngành.</li>
+              <li>• Sẽ học thêm về Excel và phân tích dữ liệu – hai thứ em thấy còn yếu.</li>
+              <li>• Dùng AI để học nhanh hơn, nhưng không dùng để thay mình suy nghĩ.</li>
+              <li>• Chia sẻ portfolio này cho các bạn cùng lớp xem, nhận góp ý để lần sau làm tốt hơn.</li>
             </ul>
           </ReflectCard>
         </div>
