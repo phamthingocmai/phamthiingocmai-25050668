@@ -2150,12 +2150,12 @@ function Conclusion() {
         <div className="reveal mt-12 rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-6 sm:p-10 shadow-[var(--shadow-soft)]">
           <p className="text-base sm:text-lg leading-relaxed" style={{ fontFamily: "'DM Serif Display', serif" }}>
             <span className="text-3xl font-bold text-primary">"</span>
-            Thông qua quá trình xây dựng Portfolio kỹ thuật số cá nhân, em không chỉ lưu trữ các sản phẩm học tập
-            mà còn nhìn lại toàn bộ quá trình rèn luyện kỹ năng công nghệ số, tư duy phản biện và khả năng sử dụng AI
-            có trách nhiệm. Portfolio giúp em hiểu rằng trong môi trường học tập hiện đại, công nghệ không chỉ là công cụ
-            hỗ trợ mà còn là phương tiện để người học thể hiện năng lực, sự sáng tạo và thái độ học tập nghiêm túc.
-            Những kỹ năng như quản lý dữ liệu, tìm kiếm học thuật, viết prompt, làm việc nhóm trực tuyến và đánh giá đạo đức AI
-            sẽ tiếp tục có giá trị trong học tập, nghiên cứu và công việc tương lai.
+            Làm xong Portfolio này, em mới thấy hoá ra một học kỳ đi qua nhanh thật.
+            Có bài em làm trơn tru (như Bài 1 – thao tác file), có bài em phải xoá đi làm lại
+            nhiều lần (như Bài 3 – viết prompt), cũng có bài em "cãi nhau" với các bạn trong nhóm
+            mới ra được sản phẩm (Bài 4). Em nghĩ thứ em học được nhiều nhất không phải là biết
+            thêm vài công cụ mới, mà là biết khi nào nên dùng AI, khi nào phải tự nghĩ. Portfolio
+            này em xin phép giữ lại làm kỷ niệm học kỳ đầu tiên ở trường.
             <span className="text-3xl font-bold text-primary">"</span>
           </p>
         </div>
