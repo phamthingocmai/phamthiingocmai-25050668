@@ -1637,33 +1637,9 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                 );
               })()
             ) : (
-              <>
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
-                  {Array.from({ length: 10 }).map((_, i) => (
-                    <figure
-                      key={i}
-                      className="group overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1"
-                    >
-                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-                        <div className="absolute inset-0 grid place-items-center text-center">
-                          <div>
-                            <ImageIcon className="mx-auto h-8 w-8 text-primary/60" />
-                            <div className="mt-2 text-xs font-medium text-muted-foreground">
-                              Ảnh #{i + 1}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <figcaption className="border-t border-border bg-card px-3 py-2.5 text-xs font-medium text-foreground/80">
-                        {i + 1}. Minh chứng thực hành — Bài {project.id}
-                      </figcaption>
-                    </figure>
-                  ))}
-                </div>
-                <p className="mt-4 text-xs text-muted-foreground">
-                  * Chèn ảnh chụp màn hình / sản phẩm thực hành vào từng ô. Kích thước khuyến nghị: 1200×900px, định dạng PNG hoặc JPG.
-                </p>
-              </>
+              <div className="rounded-2xl border border-dashed border-border bg-muted/30 p-6 text-center text-sm text-muted-foreground">
+                Chưa có ảnh minh chứng cho bài này.
+              </div>
             )}
           </div>
         </Block>
@@ -2183,7 +2159,7 @@ function Conclusion() {
         />
 
         <div className="reveal mt-12 rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-6 sm:p-10 shadow-[var(--shadow-soft)]">
-          <p className="text-base sm:text-lg leading-relaxed" style={{ fontFamily: "'Fraunces', serif" }}>
+          <p className="text-base sm:text-lg leading-relaxed" style={{ fontFamily: "'DM Serif Display', serif" }}>
             <span className="text-3xl font-bold text-primary">"</span>
             Thông qua quá trình xây dựng Portfolio kỹ thuật số cá nhân, em không chỉ lưu trữ các sản phẩm học tập
             mà còn nhìn lại toàn bộ quá trình rèn luyện kỹ năng công nghệ số, tư duy phản biện và khả năng sử dụng AI
@@ -2279,12 +2255,6 @@ function Conclusion() {
             </div>
           </div>
 
-          <div className="mt-6 flex flex-col gap-3 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 p-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm">
-              {"\n"}
-            </p>
-            <p className="text-xs text-muted-foreground">{"\n"}</p>
-          </div>
         </div>
       </div>
     </section>
@@ -2356,7 +2326,7 @@ function SectionTitle({ kicker, title, subtitle }: any) {
       </div>
       <h2
         className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"
-        style={{ fontFamily: "'Fraunces', serif" }}
+        style={{ fontFamily: "'DM Serif Display', serif" }}
       >
         {title}
       </h2>
