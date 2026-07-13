@@ -2159,7 +2159,7 @@ function Conclusion() {
         />
 
         <div className="reveal mt-12 rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-6 sm:p-10 shadow-[var(--shadow-soft)]">
-          <p className="text-base sm:text-lg leading-relaxed" style={{ fontFamily: "'Fraunces', serif" }}>
+          <p className="text-base sm:text-lg leading-relaxed" style={{ fontFamily: "'DM Serif Display', serif" }}>
             <span className="text-3xl font-bold text-primary">"</span>
             Thông qua quá trình xây dựng Portfolio kỹ thuật số cá nhân, em không chỉ lưu trữ các sản phẩm học tập
             mà còn nhìn lại toàn bộ quá trình rèn luyện kỹ năng công nghệ số, tư duy phản biện và khả năng sử dụng AI
@@ -2326,7 +2326,7 @@ function SectionTitle({ kicker, title, subtitle }: any) {
       </div>
       <h2
         className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"
-        style={{ fontFamily: "'Fraunces', serif" }}
+        style={{ fontFamily: "'DM Serif Display', serif" }}
       >
         {title}
       </h2>
